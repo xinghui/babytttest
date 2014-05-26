@@ -1,8 +1,14 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>宝贝听听</title>
+          <!-- Meta, title, CSS, favicons, etc. -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>给孩子一个有故事的童年！ - 宝贝听听官方网站</title>
+    <meta name="description" content="宝贝听听—儿童故事,睡前童话，歌谣唐诗幼教启蒙有声读物"/>
+    <meta name="keywords" content="宝贝听听,宝贝听听官方网站,听听官方网站,宝贝听听下载，宝贝听听iPhone,宝贝听听android,睡前童话,有声故事,儿歌童谣,儿童学习, 育儿教育"/>
+
     <!-- Bootstrap -->
     <link rel="stylesheet" href="css/bootstrap.min.css">
 	<!-- Bootstrap theme -->
@@ -11,6 +17,8 @@
 	<!-- Custom styles for this template -->
     <link href="css/navbar-fixed-top.css" rel="stylesheet">
 	<link rel="shortcut icon" href="assets/ico/favicon.ico">
+<!-- iOS设备添加到主屏幕的图片-->
+<!--    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="../docs-assets/ico/apple-touch-icon-144-precomposed.png">-->
 
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -22,132 +30,111 @@
   </head>
   <body >
     <nav class="navbar navbar-default navbar-fixed-top" > <!--role="navigation"-->
-	  <div class="container-fluid">
-		<!-- Brand and toggle get grouped for better mobile display -->
-		<div class="navbar-header">
-		  <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
-			<span class="sr-only">Toggle navigation</span>
-			<span class="icon-bar"></span>
-			<span class="icon-bar"></span>
-			<span class="icon-bar"></span>
-		  </button>
-		  <a class="navbar-brand" href="#">听听</a>
-		</div>
+      <div class="container-fluid">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand hidden-sm" href="http://babyting.qq.com/"><b>宝贝听听</b></a>
+        </div>
 
-		<!-- Collect the nav links, forms, and other content for toggling -->
-		<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-		  <ul class="nav navbar-nav">
-			<li class="active"><a href="#">Link</a></li>
-			<li><a href="#">Link</a></li>
-			<li class="dropdown">
-			  <a href="#" class="dropdown-toggle" data-toggle="dropdown">Dropdown <b class="caret"></b></a>
-			  <ul class="dropdown-menu">
-				<li><a href="#">Action</a></li>
-				<li><a href="#">Another action</a></li>
-				<li><a href="#">Something else here</a></li>
-				<li class="divider"></li>
-				<li><a href="#">Separated link</a></li>
-				<li class="divider"></li>
-				<li><a href="#">One more separated link</a></li>
-			  </ul>
-			</li>
-		  </ul>
-		  <form class="navbar-form navbar-left" role="search">
-			<div class="form-group">
-			  <input type="text" class="form-control" placeholder="Search">
-			</div>
-			<button type="submit" class="btn btn-default">Submit</button>
-		  </form>
-		  <ul class="nav navbar-nav navbar-right">
-			<li><a href="page/login.html">登录</a></li>
-			<li class="dropdown">
-			  <a href="#" class="dropdown-toggle" data-toggle="dropdown">Hugo <b class="caret"></b></a>
-			  <ul class="dropdown-menu">
-				<li><a href="#">上传</a></li>
-				<li><a href="#">个人中心</a></li>
-				<li><a href="#">我的频道</a></li>
-				<li><a href="#">设置</a></li>
-				<li><a href="#">退出</a></li>
-				<!--<li class="divider"></li>-->
-				<!--<li><a href="#">Separated link</a></li>-->
-			  </ul>
-			</li>
-		  </ul>
-		</div><!-- /.navbar-collapse -->
-	  </div><!-- /.container-fluid -->
-	</nav>
-	<div class="container theme-showcase" role="main">
-	<a id="github" href="https://github.com/xinghui/babytttest/tree/gh-pages"><img style="position: absolute; top: 70; right: 0; border: 0;" src="assets/ribbon.png" alt="Fork me on GitHub"></a>
-      
-	<li><a href="#">儿歌大全</a></li>
-	<li><a href="#">童话故事</a></li>
-	<li><a href="#">儿童学习</a></li>
-	<li><a href="#">儿童科普</a></li>
-	<li><a href="#">胎教母婴</a></li>
-	<li><a href="#">睡前故事</a></li>
-	<li><a href="#">儿童读物</a></li>
-	<li><a href="#">儿童英语</a></li>
-	<li><a href="#">儿童教育</a></li>
-	<li><a href="#">影视动漫</a></li>
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+          <ul class="nav navbar-nav">
+            <li class="active">
+                <a href="#">首页</a>
+            </li>
+<!--            <li><a href="#">Link</a></li>-->
+            <li class="dropdown">
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown">分类 <b class="caret"></b></a>
+              <ul class="dropdown-menu">
+                <li><a href="#">儿歌大全</a></li>
+                <li><a href="#">童话故事</a></li>
+                <li><a href="#">儿童学习</a></li>
+                <li><a href="#">儿童科普</a></li>
+                <li><a href="#">胎教母婴</a></li>
+                <li><a href="#">睡前故事</a></li>
+                <li><a href="#">儿童读物</a></li>
+                <li><a href="#">儿童英语</a></li>
+                <li><a href="#">儿童教育</a></li>
+                <li><a href="#">影视动漫</a></li>
+              </ul>
+            </li>
+          </ul>
+          <form class="navbar-form navbar-left" role="search">
+            <div class="form-group">
+              <input type="text" class="form-control" placeholder="Search">
+            </div>
+            <button type="submit" class="btn btn-default"><span class="glyphicon glyphicon-search"></span> </button>
+          </form>
+          <ul class="nav navbar-nav navbar-right">
+            <!--<li><a href="page/login.html">登录/注册</a></li>-->
+            <li class="dropdown">
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown"><span class="glyphicon glyphicon-user"></span> 登录/注册 <b class="caret"></b></a>
+              <ul class="dropdown-menu">
+                <h4>登录个人中心，观看精彩视频：</h4>
+                <button type="button" class="btn btn-primary">登录</button>
+                <button type="button" class="btn btn-primary">注册</button>
+                <li><a href="#">上传</a></li>
+                <li><a href="#">个人中心</a></li>
+                <li><a href="#">我的频道</a></li>
+                <li><a href="#">设置</a></li>
+                <li class="divider"></li>
+                <li><a href="#">退出</a></li>
+              </ul>
+            </li>
+          </ul>
+        </div><!-- /.navbar-collapse -->
+      </div><!-- /.container-fluid -->
+    </nav>
+    <div class="container theme-showcase" role="main">
 
-      <!-- Main jumbotron for a primary marketing message or call to action -->
-      <div class="jumbotron">
-        <h1>Bootstrap 是啥？</h1>
-        <p>是个CSS轻量级框架，其实我更喜欢叫他twitter出的为前端的工具包，感觉这词儿更接地气。</p>
-        <p><a href="http://v3.bootcss.com/getting-started/" class="btn btn-primary btn-lg" role="button">Learn more &raquo;</a></p>
-      </div>
-	  
-		<div>
-			<div><font color="#333333" face="ff-tisa-web-pro-1, ff-tisa-web-pro-2, Lucida Grande, Helvetica Neue, Helvetica, Arial, Hiragino Sans GB, Hiragino Sans GB W3, Microsoft YaHei UI, Microsoft YaHei, WenQuanYi Micro Hei, sans-serif"><span style="font-size: 21px; line-height: 29px;"><br></span></font></div><div><h2 style="color: rgb(51, 51, 51); box-sizing: border-box; font-family: ff-tisa-web-pro-1, ff-tisa-web-pro-2, 'Lucida Grande', 'Helvetica Neue', Helvetica, Arial, 'Hiragino Sans GB', 'Hiragino Sans GB W3', 'Microsoft YaHei UI', 'Microsoft YaHei', 'WenQuanYi Micro Hei', sans-serif; font-weight: 500; line-height: 1.1; margin-top: 20px; margin-bottom: 10px; font-size: 30px; background-color: rgb(255, 255, 255);">Bootstrap 源码</h2><p style="color: rgb(51, 51, 51); box-sizing: border-box; margin: 0px 0px 10px; line-height: 2; font-family: ff-tisa-web-pro-1, ff-tisa-web-pro-2, 'Lucida Grande', 'Helvetica Neue', Helvetica, Arial, 'Hiragino Sans GB', 'Hiragino Sans GB W3', 'WenQuanYi Micro Hei', sans-serif; font-size: 14px; background-color: rgb(255, 255, 255);">Bootstrap源码包含了预先编译的CSS、JavaScript和图标字体文件，并且还有LESS、JavaScript和文档的源码。具体来说，主要文件组织结构如下：</p><div style="box-sizing: border-box; padding: 9px 14px; margin-bottom: 14px; border: 1px solid rgb(225, 225, 232); border-top-left-radius: 4px; border-top-right-radius: 4px; border-bottom-right-radius: 4px; border-bottom-left-radius: 4px; font-family: ff-tisa-web-pro-1, ff-tisa-web-pro-2, 'Lucida Grande', 'Helvetica Neue', Helvetica, Arial, 'Hiragino Sans GB', 'Hiragino Sans GB W3', 'WenQuanYi Micro Hei', sans-serif; font-size: 14px; line-height: 20px; background-color: rgb(247, 247, 249);"><pre style="box-sizing: border-box; font-family: Menlo, Monaco, Consolas, 'Courier New', monospace; font-size: 13px; white-space: nowrap; padding: 0px; margin-top: 0px; margin-bottom: 0px; line-height: 1.428571429; word-break: break-all; word-wrap: break-word; border: 0px; border-top-left-radius: 4px; border-top-right-radius: 4px; border-bottom-right-radius: 4px; border-bottom-left-radius: 4px; background-color: transparent;"><code style="box-sizing: border-box; font-family: Menlo, Monaco, Consolas, 'Courier New', monospace; font-size: inherit; padding: 0.5em; white-space: pre-wrap; border-top-left-radius: 0px; border-top-right-radius: 0px; border-bottom-right-radius: 0px; border-bottom-left-radius: 0px; display: block; background-color: transparent;"><font color="#333333">bootstrap/--你可以把这个想象成一个Android项目<br>├── less/--这里可以对应我们的src<br>├── js/<br>├── fonts/<br>├── </font><font color="#41AD1C">dist</font><font color="#333333">/--这个对应dist或bin，我们用的是这里的。<br></font><font color="#41AD1C">│    ├── css/<br>│    │   ├── bootstrap.css<br>│    │   ├── bootstrap.min.css<br>│    │   ├── bootstrap-theme.css<br>│    │   └── bootstrap-theme.min.css<br>│    ├── js/<br>│    │   ├── bootstrap.js<br>│    │   └── bootstrap.min.js<br>│    └── fonts/<br>│         ├── glyphicons-halflings-regular.eot<br>│         ├── glyphicons-halflings-regular.svg<br>│         ├── glyphicons-halflings-regular.ttf<br>│         └── glyphicons-halflings-regular.woff</font><font color="#333333"><br>├── docs-assets/<br>├── examples/<br>└── *.html</font></code></pre></div><div>less是啥玩儿呢？</div><div>写less可以生成css</div><div>写java可以生成apk相同的道理</div><div>less是带变量，方法的css。感兴趣可以了解一下：<a href="http://www.lesscss.net/article/home.html">http://www.lesscss.net/article/home.html</a></div><div><br></div><div><br></div><div>下面是复制的：</div><div><code style="box-sizing: border-box; font-family: Menlo, Monaco, Consolas, 'Courier New', monospace; font-size: 13px; padding: 2px 4px; color: rgb(199, 37, 78); white-space: nowrap; border-top-left-radius: 4px; border-top-right-radius: 4px; border-bottom-right-radius: 4px; border-bottom-left-radius: 4px; background-color: rgb(249, 242, 244);">less/</code>、<code style="box-sizing: border-box; font-family: Menlo, Monaco, Consolas, 'Courier New', monospace; font-size: 13px; padding: 2px 4px; color: rgb(199, 37, 78); white-space: nowrap; border-top-left-radius: 4px; border-top-right-radius: 4px; border-bottom-right-radius: 4px; border-bottom-left-radius: 4px; background-color: rgb(249, 242, 244);">js/</code> 和 <code style="box-sizing: border-box; font-family: Menlo, Monaco, Consolas, 'Courier New', monospace; font-size: 13px; padding: 2px 4px; color: rgb(199, 37, 78); white-space: nowrap; border-top-left-radius: 4px; border-top-right-radius: 4px; border-bottom-right-radius: 4px; border-bottom-left-radius: 4px; background-color: rgb(249, 242, 244);">fonts/</code> 分别包含了CSS、JS和字体图标的源码。</div><div><code style="box-sizing: border-box; font-family: Menlo, Monaco, Consolas, 'Courier New', monospace; font-size: 13px; padding: 2px 4px; color: rgb(199, 37, 78); white-space: nowrap; border-top-left-radius: 4px; border-top-right-radius: 4px; border-bottom-right-radius: 4px; border-bottom-left-radius: 4px; background-color: rgb(249, 242, 244);">dist/</code> 目录包含了上面所说的预编译Bootstrap包内的所有文件。</div><div><code style="box-sizing: border-box; font-family: Menlo, Monaco, Consolas, 'Courier New', monospace; font-size: 13px; padding: 2px 4px; color: rgb(199, 37, 78); white-space: nowrap; border-top-left-radius: 4px; border-top-right-radius: 4px; border-bottom-right-radius: 4px; border-bottom-left-radius: 4px; background-color: rgb(249, 242, 244);">docs-assets/</code>、<code style="box-sizing: border-box; font-family: Menlo, Monaco, Consolas, 'Courier New', monospace; font-size: 13px; padding: 2px 4px; color: rgb(199, 37, 78); white-space: nowrap; border-top-left-radius: 4px; border-top-right-radius: 4px; border-bottom-right-radius: 4px; border-bottom-left-radius: 4px; background-color: rgb(249, 242, 244);">examples/</code> 和所有 <code style="box-sizing: border-box; font-family: Menlo, Monaco, Consolas, 'Courier New', monospace; font-size: 13px; padding: 2px 4px; color: rgb(199, 37, 78); white-space: nowrap; border-top-left-radius: 4px; border-top-right-radius: 4px; border-bottom-right-radius: 4px; border-bottom-left-radius: 4px; background-color: rgb(249, 242, 244);">*.html</code> 文件是文档的源码文件。</div><div>除了前面提到的这些文件，还包含package定义文件、许可证文件等。</div></div><div><br></div><div><font color="#41AD1C"><b><br></b></font></div><div><font color="#41AD1C"><b>未压缩版的文件可以在任意web项目中直接使用。</b></font></div><div><font color="#41AD1C"><b>我们提供了压缩(bootstrap.min.*)与未压缩 (bootstrap.*)的CSS和JS文件。</b></font></div><div><font color="#333333" face="ff-tisa-web-pro-1, ff-tisa-web-pro-2, Lucida Grande, Helvetica Neue, Helvetica, Arial, Hiragino Sans GB, Hiragino Sans GB W3, Microsoft YaHei UI, Microsoft YaHei, WenQuanYi Micro Hei, sans-serif"><span style="font-size: 21px; line-height: 29px;"><br></span></font></div><div style="box-sizing: border-box; margin: 20px 0px; padding: 20px; border-left-width: 3px; border-left-style: solid; border-top-color: rgb(188, 232, 241); border-right-color: rgb(188, 232, 241); border-bottom-color: rgb(188, 232, 241); border-left-color: rgb(188, 232, 241); color: rgb(51, 51, 51); font-family: ff-tisa-web-pro-1, ff-tisa-web-pro-2, 'Lucida Grande', 'Helvetica Neue', Helvetica, Arial, 'Hiragino Sans GB', 'Hiragino Sans GB W3', 'WenQuanYi Micro Hei', sans-serif; font-size: 14px; line-height: 20px; background-color: rgb(244, 248, 250);"><h4 style="box-sizing: border-box; font-family: ff-tisa-web-pro-1, ff-tisa-web-pro-2, 'Lucida Grande', 'Helvetica Neue', Helvetica, Arial, 'Hiragino Sans GB', 'Hiragino Sans GB W3', 'Microsoft YaHei UI', 'Microsoft YaHei', 'WenQuanYi Micro Hei', sans-serif; line-height: 1.1; color: rgb(52, 120, 154); margin-top: 0px; margin-bottom: 5px; font-size: 18px;"><br>
-		压缩版还是非压缩版？</h4><p style="box-sizing: border-box; margin: 0px; line-height: 2;">除非你需要阅读CSS代码，否则请使用压缩版。其中包含的代码是一样的，只是更精简了。压缩过的样式文件可以<b>降低带宽</b>的占用，尤其对线上环境有益。</p></div><div><br></div><div><br></div><div><br></div><div><span style="color: rgb(51, 51, 51); font-family: ff-tisa-web-pro-1, ff-tisa-web-pro-2, 'Lucida Grande', 'Helvetica Neue', Helvetica, Arial, 'Hiragino Sans GB', 'Hiragino Sans GB W3', 'Microsoft YaHei UI', 'Microsoft YaHei', 'WenQuanYi Micro Hei', sans-serif; font-size: 21px; line-height: 29.399999618530273px; background-color: rgb(255, 255, 255);">相关链接：</span></div><div><font color="#333333" face="ff-tisa-web-pro-1, ff-tisa-web-pro-2, Lucida Grande, Helvetica Neue, Helvetica, Arial, Hiragino Sans GB, Hiragino Sans GB W3, Microsoft YaHei UI, Microsoft YaHei, WenQuanYi Micro Hei, sans-serif"><span style="line-height: 29px;">中文版开始：</span></font><a href="http://v3.bootcss.com/getting-started/">http://v3.bootcss.com/getting-started/</a></div><div>英文版开始：<a href="http://getbootstrap.com/getting-started/">http://getbootstrap.com/getting-started/</a></div><div><br></div><div>GitHub：https://github.com/twbs/bootstrap</div><div><br></div><div><br></div></div>
-		
-	
-	<div class="page-header">
-			<h1>Buttons</h1>
-		</div>
-		  <p>
-			<button type="button" class="btn btn-lg btn-default">Default</button>
-			<button type="button" class="btn btn-lg btn-primary">Primary</button>
-			<button type="button" class="btn btn-lg btn-success">Success</button>
-			<button type="button" class="btn btn-lg btn-info">Info</button>
-			<button type="button" class="btn btn-lg btn-warning">Warning</button>
-			<button type="button" class="btn btn-lg btn-danger">Danger</button>
-			<button type="button" class="btn btn-lg btn-link">Link</button>
-		  </p>
-		  <p>
-			<button type="button" class="btn btn-default">Default</button>
-			<button type="button" class="btn btn-primary">Primary</button>
-			<button type="button" class="btn btn-success">Success</button>
-			<button type="button" class="btn btn-info">Info</button>
-			<button type="button" class="btn btn-warning">Warning</button>
-			<button type="button" class="btn btn-danger">Danger</button>
-			<button type="button" class="btn btn-link">Link</button>
-		  </p>
-		  <p>
-			<button type="button" class="btn btn-sm btn-default">Default</button>
-			<button type="button" class="btn btn-sm btn-primary">Primary</button>
-			<button type="button" class="btn btn-sm btn-success">Success</button>
-			<button type="button" class="btn btn-sm btn-info">Info</button>
-			<button type="button" class="btn btn-sm btn-warning">Warning</button>
-			<button type="button" class="btn btn-sm btn-danger">Danger</button>
-			<button type="button" class="btn btn-sm btn-link">Link</button>
-		  </p>
-		  <p>
-			<button type="button" class="btn btn-xs btn-default">Default</button>
-			<button type="button" class="btn btn-xs btn-primary">Primary</button>
-			<button type="button" class="btn btn-xs btn-success">Success</button>
-			<button type="button" class="btn btn-xs btn-info">Info</button>
-			<button type="button" class="btn btn-xs btn-warning">Warning</button>
-			<button type="button" class="btn btn-xs btn-danger">Danger</button>
-			<button type="button" class="btn btn-xs btn-link">Link</button>
-		  </p>
-		  
-		<div class="page-header">
-			<h1>我要学更多(以下按钮真是可以点！)</h1>
-		</div>
-		<a href="http://v3.bootcss.com/css/" class="btn btn-primary btn-lg" role="button">CSS &raquo;</a></p>
-		<a href="http://v3.bootcss.com/components/" class="btn btn-primary btn-lg" role="button">组件 &raquo;</a></p>
-		<a href="http://getbootstrap.com/examples/theme/" class="btn btn-primary btn-lg" role="button">主题 &raquo;</a></p>
+        <div class="page-header">
+            <h1>为我推荐</h1>
+            <!-- Example row of columns -->
+            <div class="row">
+              <div class="col-sm-6 col-md-4">
+                <div class="thumbnail">
+                  <img src="assets/300x200.png" alt="aaaaa">
+                  <div class="caption">
+                    <h3>老师A</h3>
+                    <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui. </p>
+                    <p><a href="#" class="btn btn-primary" role="button">关注</a>
+                  </div>
+                </div>
+              </div>
+                <div class="col-sm-6 col-md-4">
+                    <div class="thumbnail">
+                      <img src="assets/300x200.png" alt="aaaaa">
+                      <div class="caption">
+                        <h3>老师B</h3>
+                        <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui. </p>
+                        <p><a href="#" class="btn btn-primary" role="button">关注</a> 
+                      </div>
+                    </div>
+                </div>
+                 <div class="col-sm-6 col-md-4">
+                    <div class="thumbnail">
+                      <img src="assets/300x200.png" alt="aaaaa">
+                      <div class="caption">
+                        <h3>老师B</h3>
+                        <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui. </p>
+                        <p><a href="#" class="btn btn-primary" role="button">关注</a>
+                      </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="page-header">
+            <h1>最佳原创</h1>
+            <a href="http://v3.bootcss.com/css/" class="btn btn-primary btn-lg" role="button">CSS &raquo;</a></p>
+            <a href="http://v3.bootcss.com/components/" class="btn btn-primary btn-lg" role="button">组件 &raquo;</a></p>
+            <a href="http://getbootstrap.com/examples/theme/" class="btn btn-primary btn-lg" role="button">主题 &raquo;</a></p>
+        </div>
+
 		
     </div> <!-- /container -->
     <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
