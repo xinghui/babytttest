@@ -1,24 +1,36 @@
 <!DOCTYPE html>
 <html>
-  <head>
-          <!-- Meta, title, CSS, favicons, etc. -->
+
+<head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>给孩子一个有故事的童年！ - 宝贝听听官方网站</title>
-    <meta name="description" content="宝贝听听—儿童故事,睡前童话，歌谣唐诗幼教启蒙有声读物"/>
-    <meta name="keywords" content="宝贝听听,宝贝听听官方网站,听听官方网站,宝贝听听下载，宝贝听听iPhone,宝贝听听android,睡前童话,有声故事,儿歌童谣,儿童学习, 育儿教育"/>
+    <meta name="description" content="宝贝听听—儿童故事,睡前童话，歌谣唐诗幼教启蒙有声读物" />
+    <meta name="keywords" content="宝贝听听,宝贝听听官方网站,听听官方网站,宝贝听听下载，宝贝听听iPhone,宝贝听听android,睡前童话,有声故事,儿歌童谣,儿童学习, 育儿教育" />
 
     <!-- Bootstrap -->
-    <link rel="stylesheet" href="css/bootstrap.min.css">
-	<!-- Bootstrap theme -->
-    <link href="css/bootstrap-theme.min.css" rel="stylesheet">
-	
-	<!-- Custom styles for this template -->
+    <!--<link rel="stylesheet" href="css/bootstrap.min.css">-->
+    <!-- Bootstrap theme -->
+    <!--<link href="css/bootstrap-theme.min.css" rel="stylesheet">-->
+
+    <!-- 最新 Bootstrap 核心 CSS 文件 -->
+    <link rel="stylesheet" href="http://cdn.bootcss.com/twitter-bootstrap/3.0.3/css/bootstrap.min.css">
+
+    <!-- 可选的Bootstrap主题文件（一般不用引入） -->
+    <link rel="stylesheet" href="http://cdn.bootcss.com/twitter-bootstrap/3.0.3/css/bootstrap-theme.min.css">
+
+    <!-- jQuery文件。务必在bootstrap.min.js 之前引入 -->
+    <script src="http://cdn.bootcss.com/jquery/1.10.2/jquery.min.js"></script>
+
+    <!-- 最新的 Bootstrap 核心 JavaScript 文件 -->
+    <script src="http://cdn.bootcss.com/twitter-bootstrap/3.0.3/js/bootstrap.min.js"></script>
+
+    <!-- Custom styles for this template -->
     <link href="css/navbar-fixed-top.css" rel="stylesheet">
-	<link rel="shortcut icon" href="assets/ico/favicon.ico">
-<!-- iOS设备添加到主屏幕的图片-->
-<!--    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="../docs-assets/ico/apple-touch-icon-144-precomposed.png">-->
+    <link rel="shortcut icon" href="assets/ico/favicon.ico">
+    <!-- iOS设备添加到主屏幕的图片-->
+    <!--    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="../docs-assets/ico/apple-touch-icon-144-precomposed.png">-->
 
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -26,68 +38,122 @@
         <script src="http://cdn.bootcss.com/html5shiv/3.7.0/html5shiv.min.js"></script>
         <script src="http://cdn.bootcss.com/respond.js/1.3.0/respond.min.js"></script>
     <![endif]-->
-	
-  </head>
-  <body >
-    <nav class="navbar navbar-default navbar-fixed-top" > <!--role="navigation"-->
-      <div class="container-fluid">
-        <div class="navbar-header">
-          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-          </button>
-          <a class="navbar-brand hidden-sm" href="http://babyting.qq.com/"><b>宝贝听听</b></a>
-        </div>
+    <style>
+        .inrow {
+            margin-right: 0px;
+            margin-left: 0px;
+        }
+        .img-head {
+            width: 118px;
+            height: 118px;
+        }
+        .show-grid {
+            margin-bottom: 15px;
+        }
+        .show-grid [class^="col-"] {
+            padding-top: 10px;
+            padding-bottom: 10px;
+            background-color: rgba(255, 255, 255, 0.15);
+            border: 1px solid rgba(86, 61, 124, 0.04);
+        }
+        .show-grid2 [class^="col-"] {
+            padding-top: 10px;
+            padding-bottom: 10px;
+            background-color: rgba(255, 255, 255, 0);
+            border: 1px solid rgb(255, 255, 255);
+        }
+    </style>
 
-        <!-- Collect the nav links, forms, and other content for toggling -->
-        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-          <ul class="nav navbar-nav">
-            <li class="active">
-                <a href="#">首页</a>
-            </li>
-<!--            <li><a href="#">Link</a></li>-->
-            <li class="dropdown">
-              <a href="#" class="dropdown-toggle" data-toggle="dropdown">分类 <b class="caret"></b></a>
-              <ul class="dropdown-menu">
-                <li><a href="#">儿歌大全</a></li>
-                <li><a href="#">童话故事</a></li>
-                <li><a href="#">儿童学习</a></li>
-                <li><a href="#">儿童科普</a></li>
-                <li><a href="#">胎教母婴</a></li>
-                <li><a href="#">睡前故事</a></li>
-                <li><a href="#">儿童读物</a></li>
-                <li><a href="#">儿童英语</a></li>
-                <li><a href="#">儿童教育</a></li>
-                <li><a href="#">影视动漫</a></li>
-              </ul>
-            </li>
-          </ul>
-          <form class="navbar-form navbar-left" role="search">
-            <div class="form-group">
-              <input type="text" class="form-control" placeholder="Search">
+</head>
+
+<body>
+
+    <nav class="navbar navbar-default navbar-fixed-top">
+        <!--role="navigation"-->
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand hidden-sm" href="http://babyting.qq.com/"><b>宝贝听听</b></a>
             </div>
-            <button type="submit" class="btn btn-default"><span class="glyphicon glyphicon-search"></span> </button>
-          </form>
-          <ul class="nav navbar-nav navbar-right">
-            <!--<li><a href="page/login.html">登录/注册</a></li>-->
-            <li class="dropdown">
-              <a href="#" class="dropdown-toggle" data-toggle="dropdown"><span class="glyphicon glyphicon-user"></span> 登录/注册 <b class="caret"></b></a>
-              <ul class="dropdown-menu">
-                <h4>登录个人中心，观看精彩视频：</h4>
-                <button type="button" class="btn btn-primary">登录</button>
-                <button type="button" class="btn btn-primary">注册</button>
-                <li><a href="#">上传</a></li>
-                <li><a href="#">个人中心</a></li>
-                <li><a href="#">我的频道</a></li>
-                <li><a href="#">设置</a></li>
-                <li class="divider"></li>
-                <li><a href="#">退出</a></li>
-              </ul>
-            </li>
-          </ul>
-        </div><!-- /.navbar-collapse -->
-      </div><!-- /.container-fluid -->
+
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <ul class="nav navbar-nav">
+                    <li class="active">
+                        <a href="#">首页</a>
+                    </li>
+                    <!--            <li><a href="#">Link</a></li>-->
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">分类 <b class="caret"></b></a>
+                        <ul class="dropdown-menu">
+                            <li><a href="#">儿歌大全</a>
+                            </li>
+                            <li><a href="#">童话故事</a>
+                            </li>
+                            <li><a href="#">儿童学习</a>
+                            </li>
+                            <li><a href="#">儿童科普</a>
+                            </li>
+                            <li><a href="#">胎教母婴</a>
+                            </li>
+                            <li><a href="#">睡前故事</a>
+                            </li>
+                            <li><a href="#">儿童读物</a>
+                            </li>
+                            <li><a href="#">儿童英语</a>
+                            </li>
+                            <li><a href="#">儿童教育</a>
+                            </li>
+                            <li><a href="#">影视动漫</a>
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+                <form class="navbar-form navbar-left" role="search">
+                    <div class="form-group">
+                        <input type="text" class="form-control" placeholder="Search">
+                    </div>
+                    <button type="submit" class="btn btn-default"><span class="glyphicon glyphicon-search"></span> 
+                    </button>
+                </form>
+                <div class="logsign">
+                    <ul class="nav navbar-nav navbar-right">
+                        <!--<li><a href="page/login.html">登录/注册</a></li>-->
+                        <li class="dropdown">
+                            <a href="#" class="dropdown-toggle1" data-toggle="dropdown"><span class="glyphicon glyphicon-user"></span> 登录/注册 <b class="caret"></b></a>
+                            <ul class="dropdown-menu">
+                                <h4>登录个人中心，观看精彩视频：</h4>
+                                <button type="button" class="btn btn-primary">登录</button>
+                                <button type="button" class="btn btn-primary">注册</button>
+                                <li><a href="#">上传</a>
+                                </li>
+                                <li><a href="page/UserHome.html">个人中心</a>
+                                </li>
+                                <li><a href="#">我的频道</a>
+                                </li>
+                                <li><a href="#">设置</a>
+                                </li>
+                                <li class="divider"></li>
+                                <li><a href="#">退出</a>
+                                </li>
+                            </ul>
+                        </li>
+                        <li><a href="page/login.html">订阅</a>
+                        </li>
+                        <li><a href="page/login.html">历史</a>
+                        </li>
+                        <li><a href="page/login.html">上传</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <!-- /.navbar-collapse -->
+        </div>
+        <!-- /.container-fluid -->
     </nav>
     <div class="container theme-showcase" role="main">
 
@@ -95,51 +161,105 @@
             <h1>为我推荐</h1>
             <!-- Example row of columns -->
             <div class="row">
-              <div class="col-sm-6 col-md-4">
-                <div class="thumbnail">
-                  <img src="assets/300x200.png" alt="aaaaa">
-                  <div class="caption">
-                    <h3>老师A</h3>
-                    <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui. </p>
-                    <p><a href="#" class="btn btn-primary" role="button">关注</a>
-                  </div>
-                </div>
-              </div>
                 <div class="col-sm-6 col-md-4">
                     <div class="thumbnail">
-                      <img src="assets/300x200.png" alt="aaaaa">
-                      <div class="caption">
-                        <h3>老师B</h3>
-                        <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui. </p>
-                        <p><a href="#" class="btn btn-primary" role="button">关注</a> 
-                      </div>
+                        <img src="assets/300x200.png" alt="aaaaa">
+                        <div class="caption">
+                            <h3>老师A</h3>
+                            <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui.</p>
+                            <p><a href="#" class="btn btn-primary" role="button">关注</a></p>
+                        </div>
                     </div>
                 </div>
-                 <div class="col-sm-6 col-md-4">
+                <div class="col-sm-6 col-md-4">
                     <div class="thumbnail">
-                      <img src="assets/300x200.png" alt="aaaaa">
-                      <div class="caption">
-                        <h3>老师B</h3>
-                        <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui. </p>
-                        <p><a href="#" class="btn btn-primary" role="button">关注</a>
-                      </div>
+                        <img src="assets/300x200.png" alt="aaaaa">
+                        <div class="caption">
+                            <h3>老师B</h3>
+                            <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui.</p>
+                            <p><a href="#" class="btn btn-primary" role="button">关注</a></p>
+                        </div>
                     </div>
+                </div>
+                <div class="col-sm-6 col-md-4">
+                    <div class="thumbnail">
+                        <img src="assets/300x200.png" alt="aaaaa">
+                        <div class="caption">
+                            <h3>老师B</h3>
+                            <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui.</p>
+                            <p><a href="#" class="btn btn-primary" role="button">关注</a></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        
+        <div class="row show-grid">
+            <div class="col-md-8">
+                儿童英语
+            </div>
+            <div class="col-md-2">
+                排行榜
+            </div>
+            <div class="col-md-2">
+                更多>>
+            </div>
+            <div class="inrow show-grid">
+                <div class="col-md-4">
+                    <div class="inrow show-grid2">
+                        <div class="col-md-7">
+                            <a href="#" class="thumbnail">
+                                <img src="/assets/140x140.png" class="img-circle img-responsive img-head">
+                            </a>
+                        </div>
+                        
+                        <div class="col-md-5">
+                            <div class="inrow show-grid2">
+                                <div class="col-md-12">
+                                    李宗盛
+                                </div>
+                                <div class="col-md-12">
+                                    红山楂
+                                </div>
+                                <div class="col-md-12">
+                                    红山楂
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-12">
+                            <!--                        <button type="button" class="btn btn-default">-->
+                            <a href="#">
+                                <span class="glyphicon glyphicon-play"></span> 
+                            </a>
+                            <!--                        </button>-->
+                            你好
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+
+                </div>
+                <div class="col-md-4">
+
                 </div>
             </div>
         </div>
 
         <div class="page-header">
             <h1>最佳原创</h1>
-            <a href="http://v3.bootcss.com/css/" class="btn btn-primary btn-lg" role="button">CSS &raquo;</a></p>
-            <a href="http://v3.bootcss.com/components/" class="btn btn-primary btn-lg" role="button">组件 &raquo;</a></p>
-            <a href="http://getbootstrap.com/examples/theme/" class="btn btn-primary btn-lg" role="button">主题 &raquo;</a></p>
+            <a href="http://v3.bootcss.com/css/" class="btn btn-primary btn-lg" role="button">CSS &raquo;</a>
+            <a href="http://v3.bootcss.com/components/" class="btn btn-primary btn-lg" role="button">组件 &raquo;</a>
+            <a href="http://getbootstrap.com/examples/theme/" class="btn btn-primary btn-lg" role="button">主题 &raquo;</a>
         </div>
 
-		
-    </div> <!-- /container -->
+
+    </div>
+    <!-- /container -->
     <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
-    <script src="http://cdn.bootcss.com/jquery/1.10.2/jquery.min.js"></script>
+    <!--    <script src="http://cdn.bootcss.com/jquery/1.10.2/jquery.min.js"></script>-->
     <!-- Include all compiled plugins (below), or include individual files as needed -->
-    <script src="js/bootstrap.min.js"></script>
-  </body>
+    <!--    <script src="js/bootstrap.min.js"></script>-->
+</body>
+
 </html>

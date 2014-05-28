@@ -1,0 +1,635 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>给孩子一个有故事的童年！ - 宝贝听听官方网站</title>
+    <meta name="description" content="宝贝听听—儿童故事,睡前童话，歌谣唐诗幼教启蒙有声读物" />
+    <meta name="keywords" content="宝贝听听,宝贝听听官方网站,听听官方网站,宝贝听听下载，宝贝听听iPhone,宝贝听听android,睡前童话,有声故事,儿歌童谣,儿童学习, 育儿教育" />
+
+    <!-- 最新 Bootstrap 核心 CSS 文件 -->
+    <link rel="stylesheet" href="http://cdn.bootcss.com/twitter-bootstrap/3.0.3/css/bootstrap.min.css">
+
+    <!-- 可选的Bootstrap主题文件（一般不用引入） -->
+    <link rel="stylesheet" href="http://cdn.bootcss.com/twitter-bootstrap/3.0.3/css/bootstrap-theme.min.css">
+
+    <!-- jQuery文件。务必在bootstrap.min.js 之前引入 -->
+    <script src="http://cdn.bootcss.com/jquery/1.10.2/jquery.min.js"></script>
+
+    <!-- 最新的 Bootstrap 核心 JavaScript 文件 -->
+    <script src="http://cdn.bootcss.com/twitter-bootstrap/3.0.3/js/bootstrap.min.js"></script>
+
+    <!-- Loading Flat UI -->
+    <!--<link href="../css/flat-ui.css" rel="stylesheet">-->
+
+    <!-- Custom styles for this template -->
+    <link href="../css/navbar-fixed-top.css" rel="stylesheet">
+    <link rel="shortcut icon" href="assets/ico/favicon.ico">
+    <!-- iOS设备添加到主屏幕的图片-->
+    <!--    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="../docs-assets/ico/apple-touch-icon-144-precomposed.png">-->
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="http://cdn.bootcss.com/html5shiv/3.7.0/html5shiv.min.js"></script>
+        <script src="http://cdn.bootcss.com/respond.js/1.3.0/respond.min.js"></script>
+    <![endif]-->
+    <style>
+        .img-head {
+            width: 118px;
+            height: 118px;
+        }
+        .show-grid {
+            margin-bottom: 15px;
+        }
+        .show-grid [class^="col-"] {
+            padding-top: 10px;
+            padding-bottom: 10px;
+            background-color: #eee;
+            border: 1px solid #ddd;
+            background-color: rgba(86, 61, 124, .15);
+            border: 1px solid rgba(86, 61, 124, .2);
+        }
+        .discoverAlbum .discoverAlbum_wrapper {
+          *zoom: 1;
+        }
+        .discoverAlbum .discoverAlbum_wrapper:before,
+        .discoverAlbum .discoverAlbum_wrapper:after {
+          display: table;
+          content: "";
+          border-spacing: 0;
+          line-height: 0;
+        }
+        .discoverAlbum .discoverAlbum_wrapper:after {
+          clear: both;
+        }
+        .discoverAlbum .layout_right {
+          overflow-x: visible;
+        }
+        .discoverAlbum .borderRow1 {
+          border-bottom: 1px solid #fff;
+          border-right: 1px solid #fff;
+        }
+        .discoverAlbum .borderRow1_last {
+          border-bottom: 1px solid #fff;
+        }
+        .discoverAlbum .borderRow2 {
+          border-right: 1px solid #fff;
+        }
+        .discoverAlbum .tags_panel {
+          width: 207px;
+          right: -207px;
+        }
+        .discoverAlbum .albumface {
+          width: 140px;
+          height: 140px;
+          display: block;
+          background: url("img/base/bg-album-w100.jpg") no-repeat right;
+          padding: 4px 4px 0 0;
+          background: url("img/base/bg-album-w140.jpg") no-repeat right top;
+        }
+        .discoverAlbum .albumface span {
+          width: 140px;
+          height: 140px;
+          display: block;
+          cursor: pointer;
+          background-position: 0px 0px;
+        }
+        .discoverAlbum .albumface span img {
+          width: 140px;
+          height: 140px;
+          vertical-align: top;
+        }
+        .discoverAlbum .albumface span img {
+          background-color: #fff;
+        }
+        .discoverAlbum .albumface span img:hover {
+          opacity: 0.8;
+          filter: alpha(opacity=80);
+        }
+        .discoverAlbum .selecter {
+          float: right;
+          height: 25px;
+          padding-left: 10px;
+          margin-top: -1px;
+          border-left: 1px solid #ddd;
+        }
+        .discoverAlbum .selecter .selecter-selected {
+          background: none;
+        }
+        .discoverAlbum_item {
+          float: left!important;
+          width: 145px;
+          height: 210px;
+          padding: 25px 30px;
+          border: 1px solid #eaeaea;
+          overflow: hidden;
+        }
+        .discoverAlbum_item .albumface140 {
+          margin-bottom: 10px;
+        }
+        .discoverAlbum_item .discoverAlbum_title {
+          font-weight: bold;
+        }
+        .discoverAlbum_item .miniPlayer3 {
+          margin: 10px 0 15px 0;
+        }
+        .discoverAlbum_item .miniPlayer3 .title {
+          width: 120px;
+        }
+        .discoverAlbum_item .sound_playcount {
+          background: url("img/sprite/icon10px.png") no-repeat;
+          padding-left: 12px;
+          background-position: 0px -522px;
+          line-height: 18px;
+          float: left;
+          color: #fff;
+          position: relative;
+          margin: 0 10px;
+          line-height: 30px;
+        }
+        .discoverAlbum_item:hover {
+          border: 1px solid #FF9C77;
+        }
+        .discoverAlbum_item .albumfaceOutter {
+          position: relative;
+          margin-bottom: 10px;
+        }
+        .discoverAlbum_item .albumfaceOutter .playcountOutter {
+          position: absolute;
+          bottom: 0;
+          left: 0;
+          width: 140px;
+          height: 30px;
+        }
+        .discoverAlbum_item .albumfaceOutter .mask {
+          opacity: 0.7;
+          filter: alpha(opacity=70);
+          background-color: #000;
+          position: absolute;
+          bottom: 0;
+          left: 0;
+          height: 100%;
+          width: 100%;
+        }
+        
+        .albumface span {
+          width: 100px;
+          height: 100px;
+          display: block;
+          cursor: pointer;
+          background-position: 0px 0px;
+        }
+        .albumface span img {
+          width: 100px;
+          height: 100px;
+          vertical-align: top;
+        }
+        .albumface span img {
+          background-color: #fff;
+        }
+        .albumface span img:hover {
+          opacity: 0.8;
+          filter: alpha(opacity=80);
+        }
+        
+        .miniPlayer3 {
+          *zoom: 1;
+          height: 18px;
+          line-height: 18px;
+          overflow: hidden;
+        }
+        .miniPlayer3:before,
+        .miniPlayer3:after {
+          display: table;
+          content: "";
+          border-spacing: 0;
+          line-height: 0;
+        }
+        .miniPlayer3:after {
+          clear: both;
+        }
+        .miniPlayer3 .playBtn {
+          background: url("img/sprite/btn15px.png") repeat;
+          width: 15px;
+          height: 18px;
+          cursor: pointer;
+          display: inline-block;
+          overflow: hidden;
+          background-position: 0px -519px;
+          vertical-align: middle;
+          user-select: none;
+          -webkit-user-select: none;
+          white-space: nowrap;
+          float: left!important;
+        }
+        .miniPlayer3 .playBtn:hover,
+        .miniPlayer3 .playBtn.hover {
+          background-position: 0px -539px;
+          text-decoration: none;
+        }
+        .miniPlayer3 .playBtn.disabled {
+          background-position: 0 -519px;
+        }
+        .miniPlayer3 .pauseBtn,
+        .miniPlayer3 .player-loading {
+          background: url("img/sprite/btn15px.png") repeat;
+          width: 15px;
+          height: 18px;
+          cursor: pointer;
+          display: inline-block;
+          overflow: hidden;
+          background-position: 0px -558px;
+          vertical-align: middle;
+          user-select: none;
+          -webkit-user-select: none;
+          white-space: nowrap;
+          float: left!important;
+        }
+        .miniPlayer3 .pauseBtn:hover,
+        .miniPlayer3 .player-loading:hover,
+        .miniPlayer3 .pauseBtn.hover,
+        .miniPlayer3 .player-loading.hover {
+          background-position: 0px -578px;
+          text-decoration: none;
+        }
+        .miniPlayer3 .title {
+          margin: 0 0 0 10px;
+          float: left!important;
+          word-wrap: break-word;
+          max-width: 58%;
+        }
+        .miniPlayer3 .author {
+          color: #a5c3e2;
+        }
+        .miniPlayer3 .author:hover {
+          text-decoration: underline;
+          color: #3586bc;
+          -webkit-transition-property: color;
+          -o-transition-property: color;
+          -moz-transition-property: color;
+          -webkit-transition-duration: 0.3s;
+          -o-transition-duration: 0.3s;
+          -moz-transition-duration: 0.3s;
+        }
+        .miniPlayer3 .author:hover {
+          text-decoration: underline;
+          color: #a5c3e2;
+          -webkit-transition-property: color;
+          -o-transition-property: color;
+          -moz-transition-property: color;
+          -webkit-transition-duration: 0.3s;
+          -o-transition-duration: 0.3s;
+          -moz-transition-duration: 0.3s;
+        }
+        .miniPlayer3 .fr {
+          color: #999999;
+        }
+        
+        
+
+    </style>
+</head>
+
+<body>
+    <nav class="navbar navbar-default navbar-fixed-top">
+        <!--role="navigation"-->
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand hidden-sm" href="http://babyting.qq.com/"><b>宝贝听听</b></a>
+            </div>
+
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <ul class="nav navbar-nav">
+                    <li class="active">
+                        <a href="#">首页</a>
+                    </li>
+                    <!--            <li><a href="#">Link</a></li>-->
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">分类 <b class="caret"></b></a>
+                        <ul class="dropdown-menu">
+                            <li><a href="#">儿歌大全</a>
+                            </li>
+                            <li><a href="#">童话故事</a>
+                            </li>
+                            <li><a href="#">儿童学习</a>
+                            </li>
+                            <li><a href="#">儿童科普</a>
+                            </li>
+                            <li><a href="#">胎教母婴</a>
+                            </li>
+                            <li><a href="#">睡前故事</a>
+                            </li>
+                            <li><a href="#">儿童读物</a>
+                            </li>
+                            <li><a href="#">儿童英语</a>
+                            </li>
+                            <li><a href="#">儿童教育</a>
+                            </li>
+                            <li><a href="#">影视动漫</a>
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+                <form class="navbar-form navbar-left" role="search">
+                    <div class="form-group">
+                        <input type="text" class="form-control" placeholder="Search">
+                    </div>
+                    <button type="submit" class="btn btn-default"><span class="glyphicon glyphicon-search"></span> 
+                    </button>
+                </form>
+                <ul class="nav navbar-nav navbar-right">
+                    <!--<li><a href="page/login.html">登录/注册</a></li>-->
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown"><span class="glyphicon glyphicon-user"></span> 登录/注册 <b class="caret"></b></a>
+                        <ul class="dropdown-menu">
+                            <h4>登录个人中心，观看精彩视频：</h4>
+                            <button type="button" class="btn btn-primary">登录</button>
+                            <button type="button" class="btn btn-primary">注册</button>
+                            <li><a href="#">上传</a>
+                            </li>
+                            <li><a href="#">个人中心</a>
+                            </li>
+                            <li><a href="#">我的频道</a>
+                            </li>
+                            <li><a href="#">设置</a>
+                            </li>
+                            <li class="divider"></li>
+                            <li><a href="#">退出</a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li><a href="page/login.html">订阅</a>
+                    </li>
+                    <li><a href="page/login.html">历史</a>
+                    </li>
+                    <li><a href="page/login.html">上传</a>
+                    </li>
+                </ul>
+            </div>
+            <!-- /.navbar-collapse -->
+        </div>
+        <!-- /.container-fluid -->
+    </nav>
+    <div class="container theme-showcase" role="main">
+        <div class="discoverAlbum_wrapper">
+            <div class="discoverAlbum_item" album_id="256783">
+
+                <div class="albumfaceOutter">
+                    <a href="/#/1000303/album/256783" class="albumface"><span><img src="http://fdfs.xmcdn.com/group5/M02/17/96/wKgDtVN8iIGiYMDKAALegEJfzMg945_web_large.jpg" alt="【喜马拉雅翻唱音乐榜】2014年5月榜-TOP20-"></span></a>
+                    <div class="playcountOutter">
+                        <div class="mask"></div><span class="sound_playcount">2958082</span>
+                    </div>
+                </div>
+
+                <a href="/#/1000303/album/256783" title="【喜马拉雅翻唱音乐榜】2014年5月榜-TOP20-" class="discoverAlbum_title">【喜马拉雅翻唱音乐榜】2014年...</a>
+                <div class="miniPlayer3" sound_id="2710883">
+                    <a class="playBtn"></a>
+                    <a class="title" href="/#/1000303/sound/2710883">《夜曲》词曲改编翻唱：Not a sad song</a>
+                </div>
+            </div>
+            <div class="discoverAlbum_item" album_id="237771">
+
+                <div class="albumfaceOutter">
+                    <a href="/#/6565682/album/237771" class="albumface"><span><img src="http://fdfs.xmcdn.com/group5/M02/1A/8E/wKgDtVN-sRTh80Q9AAH6lPe0h9c516_web_large.jpg" alt="小七的私房歌"></span></a>
+                    <div class="playcountOutter">
+                        <div class="mask"></div><span class="sound_playcount">877900</span>
+                    </div>
+                </div>
+
+                <a href="/#/6565682/album/237771" title="小七的私房歌" class="discoverAlbum_title">小七的私房歌</a>
+                <div class="miniPlayer3" sound_id="2785924">
+                    <a class="playBtn"></a>
+                    <a class="title" href="/#/6565682/sound/2785924">红颜!蓝颜!</a>
+                </div>
+            </div>
+            <div class="discoverAlbum_item" album_id="230311">
+
+                <div class="albumfaceOutter">
+                    <a href="/#/4946354/album/230311" class="albumface"><span><img src="http://fdfs.xmcdn.com/group4/M02/4B/A1/wKgDtFNZ6FzCmCP3AAB6bkn8EvI592_web_large.jpg" alt="小南-Radio 随车听"></span></a>
+                    <div class="playcountOutter">
+                        <div class="mask"></div><span class="sound_playcount">496164</span>
+                    </div>
+                </div>
+
+                <a href="/#/4946354/album/230311" title="小南-Radio 随车听" class="discoverAlbum_title">小南-Radio 随车听</a>
+                <div class="miniPlayer3" sound_id="2798480">
+                    <a class="playBtn"></a>
+                    <a class="title" href="/#/4946354/sound/2798480">Radio 随车听（所有刺激剩下疲乏的痛，再无动于衷——红玫瑰）</a>
+                </div>
+            </div>
+            <div class="discoverAlbum_item" album_id="252616">
+
+                <div class="albumfaceOutter">
+                    <a href="/#/5254595/album/252616" class="albumface"><span><img src="http://fdfs.xmcdn.com/group4/M02/4E/22/wKgDtFNcmNLQvNM8AATSh-tCeoA622_web_large.jpg" alt="【K歌之王】主播：大龄婴儿"></span></a>
+                    <div class="playcountOutter">
+                        <div class="mask"></div><span class="sound_playcount">67460</span>
+                    </div>
+                </div>
+
+                <a href="/#/5254595/album/252616" title="【K歌之王】主播：大龄婴儿" class="discoverAlbum_title">【K歌之王】主播：大龄婴儿</a>
+                <div class="miniPlayer3" sound_id="2776350">
+                    <a class="playBtn"></a>
+                    <a class="title" href="/#/5254595/sound/2776350">【K歌之王第4期】 樊凡 情感的抒发《我想大声告诉你》教唱</a>
+                </div>
+            </div>
+            <div class="discoverAlbum_item" album_id="255935">
+
+                <div class="albumfaceOutter">
+                    <a href="/#/7725987/album/255935" class="albumface"><span><img src="http://fdfs.xmcdn.com/group5/M02/0D/7C/wKgDtlN1e-yRO6baAAGCunrX0jk926_web_large.jpg" alt="音乐不了情"></span></a>
+                    <div class="playcountOutter">
+                        <div class="mask"></div><span class="sound_playcount">530</span>
+                    </div>
+                </div>
+
+                <a href="/#/7725987/album/255935" title="音乐不了情" class="discoverAlbum_title">音乐不了情</a>
+                <div class="miniPlayer3" sound_id="2796940">
+                    <a class="playBtn"></a>
+                    <a class="title" href="/#/7725987/sound/2796940">音乐不了情第5期-左手回忆，右手年华</a>
+                </div>
+            </div>
+            <div class="discoverAlbum_item" album_id="227291">
+
+                <div class="albumfaceOutter">
+                    <a href="/#/1315711/album/227291" class="albumface"><span><img src="http://fdfs.xmcdn.com/group3/M03/8C/D8/wKgDslKiAm-xswchAARqo06eDAU996_web_large.jpg" alt="张羊点咖"></span></a>
+                    <div class="playcountOutter">
+                        <div class="mask"></div><span class="sound_playcount">11998</span>
+                    </div>
+                </div>
+
+                <a href="/#/1315711/album/227291" title="张羊点咖" class="discoverAlbum_title">张羊点咖</a>
+                <div class="miniPlayer3" sound_id="2793738">
+                    <a class="playBtn"></a>
+                    <a class="title" href="/#/1315711/sound/2793738">对话金曲黑马李荣浩（张羊点咖）</a>
+                </div>
+            </div>
+            <div class="discoverAlbum_item" album_id="255796">
+
+                <div class="albumfaceOutter">
+                    <a href="/#/2834923/album/255796" class="albumface"><span><img src="http://fdfs.xmcdn.com/group5/M01/0D/97/wKgDtVN1kRLBuBYuAADdivrE8Vk909_web_large.jpg" alt="【好歌用力推】"></span></a>
+                    <div class="playcountOutter">
+                        <div class="mask"></div><span class="sound_playcount">5283</span>
+                    </div>
+                </div>
+
+                <a href="/#/2834923/album/255796" title="【好歌用力推】" class="discoverAlbum_title">【好歌用力推】</a>
+                <div class="miniPlayer3" sound_id="2793863">
+                    <a class="playBtn"></a>
+                    <a class="title" href="/#/2834923/sound/2793863">【好歌用力推】各种千千阙歌</a>
+                </div>
+            </div>
+            <div class="discoverAlbum_item" album_id="243571">
+
+                <div class="albumfaceOutter">
+                    <a href="/#/4247709/album/243571" class="albumface"><span><img src="http://fdfs.xmcdn.com/group4/M00/2E/1C/wKgDs1M6P0Gzl_gTAANWGCX9aQo968_web_large.jpg" alt="白雪电台"></span></a>
+                    <div class="playcountOutter">
+                        <div class="mask"></div><span class="sound_playcount">335971</span>
+                    </div>
+                </div>
+
+                <a href="/#/4247709/album/243571" title="白雪电台" class="discoverAlbum_title">白雪电台</a>
+                <div class="miniPlayer3" sound_id="2789319">
+                    <a class="playBtn"></a>
+                    <a class="title" href="/#/4247709/sound/2789319">周杰伦成就了多少天后！！！</a>
+                </div>
+            </div>
+            <div class="discoverAlbum_item" album_id="225568">
+
+                <div class="albumfaceOutter">
+                    <a href="/#/4788395/album/225568" class="albumface"><span><img src="http://fdfs.xmcdn.com/group3/M02/87/16/wKgDsVKc0R3RNOsnAABtqqeFVTs364_web_large.jpg" alt="潮FM"></span></a>
+                    <div class="playcountOutter">
+                        <div class="mask"></div><span class="sound_playcount">100209</span>
+                    </div>
+                </div>
+
+                <a href="/#/4788395/album/225568" title="潮FM" class="discoverAlbum_title">潮FM</a>
+                <div class="miniPlayer3" sound_id="2790267">
+                    <a class="playBtn"></a>
+                    <a class="title" href="/#/4788395/sound/2790267">潮音乐-39(192kb)</a>
+                </div>
+            </div>
+            <div class="discoverAlbum_item" album_id="231944">
+
+                <div class="albumfaceOutter">
+                    <a href="/#/5573180/album/231944" class="albumface"><span><img src="http://fdfs.xmcdn.com/group3/M08/20/DA/wKgDsVMKszqxhYsyAAGNLbbDmpI955_web_large.png" alt="Enjoy radio 享电台"></span></a>
+                    <div class="playcountOutter">
+                        <div class="mask"></div><span class="sound_playcount">235789</span>
+                    </div>
+                </div>
+
+                <a href="/#/5573180/album/231944" title="Enjoy radio 享电台" class="discoverAlbum_title">Enjoy radio 享电台</a>
+                <div class="miniPlayer3" sound_id="2794335">
+                    <a class="playBtn"></a>
+                    <a class="title" href="/#/5573180/sound/2794335">名人与名妓</a>
+                </div>
+            </div>
+            <div class="discoverAlbum_item" album_id="195519">
+
+                <div class="albumfaceOutter">
+                    <a href="/#/1014612/album/195519" class="albumface"><span><img src="http://fdfs.xmcdn.com/group2/M02/4F/DF/wKgDsFLWISThIkldAADoLyO1ZWU260_web_large.jpg" alt="老歌听不够"></span></a>
+                    <div class="playcountOutter">
+                        <div class="mask"></div><span class="sound_playcount">920927</span>
+                    </div>
+                </div>
+
+                <a href="/#/1014612/album/195519" title="老歌听不够" class="discoverAlbum_title">老歌听不够</a>
+                <div class="miniPlayer3" sound_id="2763016">
+                    <a class="playBtn"></a>
+                    <a class="title" href="/#/1014612/sound/2763016">{恒心}Music line-乡村日记</a>
+                </div>
+            </div>
+            <div class="discoverAlbum_item" album_id="255847">
+
+                <div class="albumfaceOutter">
+                    <a href="/#/8532024/album/255847" class="albumface"><span><img src="http://fdfs.xmcdn.com/group5/M01/0C/43/wKgDtlN0iHSQTkHSAAJyTanT7Mk258_web_large.jpg" alt="《代代电台》精简版"></span></a>
+                    <div class="playcountOutter">
+                        <div class="mask"></div><span class="sound_playcount">9408</span>
+                    </div>
+                </div>
+
+                <a href="/#/8532024/album/255847" title="《代代电台》精简版" class="discoverAlbum_title">《代代电台》精简版</a>
+                <div class="miniPlayer3" sound_id="2794801">
+                    <a class="playBtn"></a>
+                    <a class="title" href="/#/8532024/sound/2794801">“放牛娃”一路走来的音乐故事</a>
+                </div>
+            </div>
+        </div>
+        <div class="bs-docs-grid">
+            <div class="row show-grid">
+                <div class="col-xs-12 col-md-8">.col-xs-12 .col-md-8</div>
+                <div class="col-xs-6 col-md-4">.col-xs-6 .col-md-4</div>
+            </div>
+            <div class="row show-grid">
+                <div class="col-xs-6 col-md-4">.col-xs-6 .col-md-4</div>
+                <div class="col-xs-6 col-md-4">.col-xs-6 .col-md-4</div>
+                <div class="col-xs-6 col-md-4">.col-xs-6 .col-md-4</div>
+            </div>
+            <div class="row show-grid">
+                <div class="col-xs-6">.col-xs-6</div>
+                <div class="col-xs-6">.col-xs-6</div>
+            </div>
+        </div>
+        <div class="row show-grid">
+            <div class="col-md-3">
+                aaa
+            </div>
+            <div class="col-md-3">
+                <img src="/assets/140x140.png" class="img-circle img-responsive img-head">
+            </div>
+
+        </div>
+
+        <div class="page-header">
+            <h1>个人中心</h1>
+            <ul id="myTab" class="nav nav-tabs">
+                <li class="active"><a href="#home" data-toggle="tab">我的首页</a>
+                </li>
+                <li><a href="#profile" data-toggle="tab">收听记录</a>
+                </li>
+                <li class="dropdown">
+                    <a href="#" id="myTabDrop1" class="dropdown-toggle" data-toggle="dropdown">Dropdown <b class="caret"></b></a>
+                    <ul class="dropdown-menu" role="menu" aria-labelledby="myTabDrop1">
+                        <li><a href="#dropdown1" tabindex="-1" data-toggle="tab">@fat</a>
+                        </li>
+                        <li><a href="#dropdown2" tabindex="-1" data-toggle="tab">@mdo</a>
+                        </li>
+                    </ul>
+                </li>
+                <li><a href="#profile" data-toggle="tab">我的收藏</a>
+                </li>
+            </ul>
+            <div id="myTabContent" class="tab-content">
+                <div class="tab-pane fade in active" id="home">
+                    <p>Raw denim you probably haven't heard of them jean shorts Austin. Nesciunt tofu stumptown aliqua, retro synth master cleanse. Mustache cliche tempor, williamsburg carles vegan helvetica. Reprehenderit butcher retro keffiyeh dreamcatcher synth. Cosby sweater eu banh mi, qui irure terry richardson ex squid. Aliquip placeat salvia cillum iphone. Seitan aliquip quis cardigan american apparel, butcher voluptate nisi qui.</p>
+                </div>
+                <div class="tab-pane fade" id="profile">
+                    <p>Food truck fixie locavore, accusamus mcsweeney's marfa nulla single-origin coffee squid. Exercitation +1 labore velit, blog sartorial PBR leggings next level wes anderson artisan four loko farm-to-table craft beer twee. Qui photo booth letterpress, commodo enim craft beer mlkshk aliquip jean shorts ullamco ad vinyl cillum PBR. Homo nostrud organic, assumenda labore aesthetic magna delectus mollit. Keytar helvetica VHS salvia yr, vero magna velit sapiente labore stumptown. Vegan fanny pack odio cillum wes anderson 8-bit, sustainable jean shorts beard ut DIY ethical culpa terry richardson biodiesel. Art party scenester stumptown, tumblr butcher vero sint qui sapiente accusamus tattooed echo park.</p>
+                </div>
+                <div class="tab-pane fade" id="dropdown1">
+                    <p>Etsy mixtape wayfarers, ethical wes anderson tofu before they sold out mcsweeney's organic lomo retro fanny pack lo-fi farm-to-table readymade. Messenger bag gentrify pitchfork tattooed craft beer, iphone skateboard locavore carles etsy salvia banksy hoodie helvetica. DIY synth PBR banksy irony. Leggings gentrify squid 8-bit cred pitchfork. Williamsburg banh mi whatever gluten-free, carles pitchfork biodiesel fixie etsy retro mlkshk vice blog. Scenester cred you probably haven't heard of them, vinyl craft beer blog stumptown. Pitchfork sustainable tofu synth chambray yr.</p>
+                </div>
+                <div class="tab-pane fade" id="dropdown2">
+                    <p>Trust fund seitan letterpress, keytar raw denim keffiyeh etsy art party before they sold out master cleanse gluten-free squid scenester freegan cosby sweater. Fanny pack portland seitan DIY, art party locavore wolf cliche high life echo park Austin. Cred vinyl keffiyeh DIY salvia PBR, banh mi before they sold out farm-to-table VHS viral locavore cosby sweater. Lomo wolf viral, mustache readymade thundercats keffiyeh craft beer marfa ethical. Wolf salvia freegan, sartorial keffiyeh echo park vegan.</p>
+                </div>
+            </div>
+            <!--tab-content-->
+
+        </div>
+
+    </div>
+    <!-- /container -->
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <!--    <script src="http://cdn.bootcss.com/jquery/1.10.2/jquery.min.js"></script>-->
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+    <!--    <script src="js/bootstrap.min.js"></script>-->
+</body>
+
+</html>
