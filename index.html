@@ -44,8 +44,8 @@
             margin-left: 0px;
         }
         .img-head {
-            width: 118px;
-            height: 118px;
+            width: 130px;
+            height: 130px;
         }
         .show-grid {
             margin-bottom: 15px;
@@ -59,7 +59,7 @@
         .show-grid2 [class^="col-"] {
             padding-top: 10px;
             padding-bottom: 10px;
-            background-color: rgba(255, 255, 255, 0);
+            background-color: rgba(255, 255, 255, 0.6);
             border: 1px solid rgb(255, 255, 255);
         }
         .shadow-box {
@@ -73,14 +73,53 @@
             -webkit-box-shadow: #666 0px 0px 10px;
             -moz-box-shadow: #666 0px 0px 10px;
             box-shadow: #666 0px 0px 10px;
-            background: #EEFF99;
-            behavior: url(/PIE.htc);
+            background: #fff;
+/*            behavior: url(/PIE.htc);*/
         }
     </style>
 
-    <script>
+
+    <script type="text/javascript">
+        $(document).ready(function(){
+            $("#rr1").mouseover(function () {
+                $("#rr1").addClass("shadow-box");
+            });
+            $("#rr1").mouseout(function () {
+                $("#rr1").removeClass("shadow-box");
+            });
+
+            function setRrMouseEvent(id){
+                var ids = document.getElementById(id);
+                $(ids).mouseover(function () {
+                    $(ids).addClass("shadow-box");
+                });
+                $(ids).mouseout(function () {
+                    $(ids).removeClass("shadow-box");
+                });
+            }
+
+
+            var $repeatDiv = jQuery("#rr1");
+            for (var i = 6; i > 1; i--) {
+                $repeatDiv.after($repeatDiv.clone().attr("id", "rr" + i));
+                setRrMouseEvent("rr"+i);
+            }
+
+            // same copy
+            //DUPLICATE PLUGIN
+            //            $.fn.duplicate = function(count, cloneEvents) {
+            //                var tmp = [];
+            //                for (var i = 0; i < count; i++) {
+            //                    $.merge(tmp, this.clone(cloneEvents).get());
+            //                }
+            //                return this.pushStack(tmp);
+            //            };
+            //            $('#rr1').duplicate(5).appendTo('#inrow1');//.addClass('new')
+            // same copy end
+        });
         
     </script>
+<!--    <script type="text/javascript" src="js/index.js"></script>-->
 </head>
 
 <body>
@@ -222,17 +261,17 @@
             <div class="col-md-2">
                 更多>>
             </div>
-            <div class="inrow show-grid">
-                <div class="col-md-4 shadow-box">
+            <div class="inrow show-grid" id="inrow1">
+                <div class="col-md-4" id="rr1">
                     <div class="inrow show-grid2">
                         <div class="col-md-7">
                             <a href="#" class="thumbnail">
-                                <img src="assets/140x140.png" class="img-circle img-responsive img-head">
+                                <img src="assets/li.jpg" class="img-circle img-responsive img-head">
                             </a>
                         </div>
                         
                         <div class="col-md-5 ">
-                            <div class="inrow show-grid2">
+                            <!--<div class="inrow show-grid2">-->
                                 <div class="col-md-12">
                                     <p>李宗盛</p>
                                 </div>
@@ -242,7 +281,7 @@
                                 <div class="col-md-12">
                                     <p>红山楂</p>
                                 </div>
-                            </div>
+                            <!--</div>-->
                         </div>
                         <div class="col-md-12">
                             <!--                        <button type="button" class="btn btn-default">-->
@@ -254,12 +293,12 @@
                         </div>
                     </div>
                 </div>
-                <div class="col-md-4" id="rr2">
+               <!-- <div class="col-md-4" id="rr2">
 
                 </div>
                 <div class="col-md-4">
 
-                </div>
+                </div>-->
             </div>
         </div>
 
