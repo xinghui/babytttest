@@ -1,0 +1,241 @@
+<style>
+    .top-nav-profile {
+        position: absolute;
+        right: 0;
+        top: 0;
+        min-width: 120px;
+        z-index: 10
+    }
+    .top-nav-profile a {
+        display: block;
+        width: 120px;
+        background-color: #095FB3;
+        text-shadow: 0 1px 1px rgba(0, 0, 0, .12);
+        font-size: 14px
+    }
+    .top-nav-profile .top-nav-dropdown {
+        top: 46px
+    }
+    .top-nav-profile .top-nav-dropdown a {
+        width: 120px
+    }
+    .open .top-nav-dropdown,
+    html.no-touch .top-nav-profile:hover .top-nav-dropdown {
+        display: block
+    }
+    .top-nav-profile .zu-top-nav-userinfo {
+        position: relative;
+        height: 45px;
+        line-height: 45px;
+        text-indent: 46px;
+        color: #fff;
+        text-decoration: none;
+        border-top: 0;
+        background: transparent;
+        box-shadow: none;
+        white-space: nowrap;
+        text-overflow: ellipsis;
+        overflow: hidden
+    }
+    .zu-top-nav-userinfo.selected,
+    html.no-touch .top-nav-profile:hover .zu-top-nav-userinfo {
+        height: 46px!important;
+        background-color: #075fb6;
+        background-image: -moz-linear-gradient(top, #055fb8, #095fb3);
+        background-image: -ms-linear-gradient(top, #055fb8, #095fb3);
+        background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#055fb8), to(#095fb3));
+        background-image: -webkit-linear-gradient(top, #055fb8, #095fb3);
+        background-image: -o-linear-gradient(top, #055fb8, #095fb3);
+        background-image: linear-gradient(top, #055fb8, #095fb3);
+        background-repeat: repeat-x;
+        filter: progid: DXImageTransform.Microsoft.gradient(startColorstr='#055fb8', endColorstr='#095fb3', GradientType=0);
+        box-shadow: inset 0 0 2px rgba(0, 0, 0, .12)
+    }
+    html.no-touch .zu-top-nav-userinfo:hover {
+        background-color: #046dd6
+    }
+    .zu-top-nav-userinfo .avatar {
+        position: absolute;
+        top: 9px;
+        left: 10px;
+        width: 25px;
+        height: 25px;
+        border: 1px solid rgba(0, 0, 0, .1);
+        box-shadow: 0 1px 0 rgba(255, 255, 255, .1)
+    }
+    .top-nav-dropdown .zg-icon {
+        width: 20px;
+        height: 20px;
+        margin: 0 11px 0 15px;
+        vertical-align: -7px
+    }
+    .zg-icon-dd-home {
+        background-position: -6px -7px
+    }
+    .zg-icon-dd-pm {
+        background-position: -6px -34px
+    }
+    .zg-icon-dd-settings {
+        background-position: -6px -60px
+    }
+    .zg-icon-dd-logout {
+        background-position: -6px -87px
+    }
+    .zu-top-nav {
+        float: left;
+        position: relative
+    }
+    .zu-top-nav-live {
+        position: absolute;
+        left: 108px;
+        top: 45px;
+        width: 290px;
+        z-index: 9;
+        background: #fff;
+        outline: 0
+    }
+    .zu-top-nav-ul {
+        padding: 0;
+        margin: 0 0 0 18px
+    }
+    .zu-top-nav-li {
+        position: relative;
+        float: left;
+        margin: 0;
+        list-style: none
+    }
+    .zu-top-nav-li.current {
+        background-color: #075fb6;
+        background-image: -moz-linear-gradient(top, #055fb8, #095fb3);
+        background-image: -ms-linear-gradient(top, #055fb8, #095fb3);
+        background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#055fb8), to(#095fb3));
+        background-image: -webkit-linear-gradient(top, #055fb8, #095fb3);
+        background-image: -o-linear-gradient(top, #055fb8, #095fb3);
+        background-image: linear-gradient(top, #055fb8, #095fb3);
+        background-repeat: repeat-x;
+        filter: progid: DXImageTransform.Microsoft.gradient(startColorstr='#055fb8', endColorstr='#095fb3', GradientType=0);
+        box-shadow: inset 0 0 2px rgba(0, 0, 0, .12)
+    }
+    .zu-top-nav-link,
+    .zu-top-nav-link:visited,
+    .zu-top-nav-link:active {
+        color: #EEE
+    }
+    .zu-top-nav-link:hover {
+        color: #FFF;
+        text-decoration: none
+    }
+    .zu-top-nav-link {
+        width: 54px;
+        height: 45px;
+        line-height: 45px;
+        text-align: center;
+        display: block;
+        color: #f2f4f5;
+        text-shadow: 0 1px 1px rgba(0, 0, 0, .12);
+        font-size: 14px
+    }
+    .zg-noti-number {
+        background: #BF1031;
+        border: 1px solid #B11331;
+        box-shadow: 0 1px 2px rgba(0, 0, 0, .1), inset 0 1px 0 rgba(255, 255, 255, .15);
+        color: #fff;
+        display: inline-block;
+        font-size: 11px;
+        font-weight: 700;
+        -webkit-text-size-adjust: none;
+        padding: 0 5px;
+        height: 16px;
+        line-height: 16px;
+        border-radius: 16px;
+        text-indent: 0;
+        text-align: center;
+        text-decoration: none
+    }
+    .zu-top-nav-count,
+    .zu-top-nav-userinfo .zu-top-nav-pm-count {
+        z-index: 12;
+        top: 5px;
+        position: absolute
+    }
+    .zu-top-nav-count {
+        left: 31px
+    }
+    .zu-top-nav-userinfo .zu-top-nav-pm-count {
+        left: 29px
+    }
+    .top-nav-profile .top-nav-dropdown .zu-top-nav-pm-count {
+        vertical-align: 1px;
+        margin-left: 8px
+    }
+    .zu-top-nav-count:hover {
+        text-decoration: none
+    }
+    .zg-black-tip {
+        background: #000;
+        background: -webkit-gradient(linear, left top, left bottom, from(rgba(66, 69, 72, .9)), to(rgba(51, 55, 59, .9)), color-stop(0.9, rgba(26, 28, 30, .9)));
+        background: linear-gradient(top, rgba(66, 69, 72, .9), rgba(26, 28, 30, .9) 90%, rgba(51, 55, 59, .9));
+        border: 1px solid rgba(0, 0, 0, .2);
+        opacity: 1;
+        -webkit-box-shadow: 0 0 1px rgba(255, 255, 255, .2) inset, 0 1px 3px rgba(0, 0, 0, .8);
+        box-shadow: 0 0 1px rgba(255, 255, 255, .2) inset, 0 1px 3px rgba(0, 0, 0, .8);
+        position: absolute;
+        left: 93px;
+        top: 40px;
+        width: 260px;
+        padding: 0 10px 10px;
+        z-index: 999;
+        font-size: 12px
+    }
+    .zg-black-tip-icon {
+        background: url(/static/img/sprites-1.9.1.png) no-repeat scroll -46px -648px;
+        width: 14px;
+        height: 7px;
+        position: absolute;
+        top: -7px;
+        left: 55px
+    }
+    .zg-black-tip-content {
+        padding: 5px 0 0;
+        color: #fff;
+        font-size: 13px;
+        text-shadow: 0 1px 0 rgba(0, 0, 0, .8);
+        text-align: center
+    }
+</style>
+<div class="top-nav-profile">
+    <a href="/people/xinghui" class="zu-top-nav-userinfo ">
+        <span class="name">Hugo</span>
+        <img class="avatar" src="http://p4.zhimg.com/01/e0/01e0ca6ef_s.jpg" />
+        <span id="zh-top-nav-new-pm" class="zg-noti-number zu-top-nav-pm-count" style="visibility:hidden" data-count="0">
+
+</span>
+    </a>
+    <ul class="top-nav-dropdown" id="top-nav-profile-dropdown">
+        <li>
+            <a href="/people/xinghui">
+                <i class="zg-icon zg-icon-dd-home"></i>我的主页
+            </a>
+        </li>
+
+        <li>
+            <a href="/inbox">
+                <i class="zg-icon zg-icon-dd-pm"></i>私信
+                <span id="zh-top-nav-pm-count" class="zu-top-nav-pm-count zg-noti-number" style="visibility:hidden" data-count="0">
+
+</span>
+            </a>
+        </li>
+        <li>
+            <a href="/settings">
+                <i class="zg-icon zg-icon-dd-settings"></i>设置
+            </a>
+        </li>
+        <li>
+            <a href="/logout">
+                <i class="zg-icon zg-icon-dd-logout"></i>退出
+            </a>
+        </li>
+    </ul>
+
+</div>

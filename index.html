@@ -29,8 +29,11 @@
     <!-- Custom styles for this template -->
     <link href="css/navbar-fixed-top.css" rel="stylesheet">
     <link rel="shortcut icon" href="assets/ico/favicon.ico">
+    
+    <!--iOS应用在App Store中的链接-->
+    <meta name="apple-itunes-app" content="app-id=480111612" />
     <!-- iOS设备添加到主屏幕的图片-->
-    <!--    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="../docs-assets/ico/apple-touch-icon-144-precomposed.png">-->
+    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="assets/li.jpg">
 
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -64,9 +67,9 @@
         }
         .shadow-box {
             border: 1px solid #696;
-/*            padding: px;*/
-/*            text-align: center; */
-/*            width: ;*/
+            /*            padding: px;*/
+            /*            text-align: center; */
+            /*            width: ;*/
             -webkit-border-radius: 8px;
             -moz-border-radius: 8px;
             border-radius: 8px;
@@ -74,13 +77,13 @@
             -moz-box-shadow: #666 0px 0px 10px;
             box-shadow: #666 0px 0px 10px;
             background: #fff;
-/*            behavior: url(/PIE.htc);*/
+            /*            behavior: url(/PIE.htc);*/
         }
     </style>
 
 
     <script type="text/javascript">
-        $(document).ready(function(){
+        $(document).ready(function () {
             $("#rr1").mouseover(function () {
                 $("#rr1").addClass("shadow-box");
             });
@@ -88,7 +91,7 @@
                 $("#rr1").removeClass("shadow-box");
             });
 
-            function setRrMouseEvent(id){
+            function setRrMouseEvent(id) {
                 var ids = document.getElementById(id);
                 $(ids).mouseover(function () {
                     $(ids).addClass("shadow-box");
@@ -102,7 +105,7 @@
             var $repeatDiv = jQuery("#rr1");
             for (var i = 6; i > 1; i--) {
                 $repeatDiv.after($repeatDiv.clone().attr("id", "rr" + i));
-                setRrMouseEvent("rr"+i);
+                setRrMouseEvent("rr" + i);
             }
 
             // same copy
@@ -117,9 +120,8 @@
             //            $('#rr1').duplicate(5).appendTo('#inrow1');//.addClass('new')
             // same copy end
         });
-        
     </script>
-<!--    <script type="text/javascript" src="js/index.js"></script>-->
+    <!--    <script type="text/javascript" src="js/index.js"></script>-->
 </head>
 
 <body>
@@ -223,7 +225,8 @@
                         <div class="caption">
                             <h3>老师A</h3>
                             <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui.</p>
-                            <p><a href="#" class="btn btn-primary" role="button">关注</a></p>
+                            <p><a href="#" class="btn btn-primary" role="button">关注</a>
+                            </p>
                         </div>
                     </div>
                 </div>
@@ -233,7 +236,8 @@
                         <div class="caption">
                             <h3>老师B</h3>
                             <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui.</p>
-                            <p><a href="#" class="btn btn-primary" role="button">关注</a></p>
+                            <p><a href="#" class="btn btn-primary" role="button">关注</a>
+                            </p>
                         </div>
                     </div>
                 </div>
@@ -243,14 +247,15 @@
                         <div class="caption">
                             <h3>老师B</h3>
                             <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui.</p>
-                            <p><a href="#" class="btn btn-primary" role="button">关注</a></p>
+                            <p><a href="#" class="btn btn-primary" role="button">关注</a>
+                            </p>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
 
-        
+
         <div class="row show-grid">
             <div class="col-md-8">
                 儿童英语
@@ -269,18 +274,18 @@
                                 <img src="assets/li.jpg" class="img-circle img-responsive img-head">
                             </a>
                         </div>
-                        
+
                         <div class="col-md-5 ">
                             <!--<div class="inrow show-grid2">-->
-                                <div class="col-md-12">
-                                    <p>李宗盛</p>
-                                </div>
-                                <div class="col-md-12">
-                                    <p>红山楂</p>
-                                </div>
-                                <div class="col-md-12">
-                                    <p>红山楂</p>
-                                </div>
+                            <div class="col-md-12">
+                                <p>李宗盛</p>
+                            </div>
+                            <div class="col-md-12">
+                                <p>红山楂</p>
+                            </div>
+                            <div class="col-md-12">
+                                <p>红山楂</p>
+                            </div>
                             <!--</div>-->
                         </div>
                         <div class="col-md-12">
@@ -293,7 +298,7 @@
                         </div>
                     </div>
                 </div>
-               <!-- <div class="col-md-4" id="rr2">
+                <!-- <div class="col-md-4" id="rr2">
 
                 </div>
                 <div class="col-md-4">
