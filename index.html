@@ -80,6 +80,37 @@
             box-shadow: #666 0px 0px 10px;
             background: #fff;
             /*            behavior: url(/PIE.htc);*/
+/*
+            -webkit-animation: rotateplane 1.2s infinite ease-in-out;
+            animation: rotateplane 1.2s infinite ease-in-out;
+*/
+        }
+        .animation-story {
+            -webkit-animation: rotateplane 1.2s ease-in-out;
+            animation: rotateplane 1.2s ease-in-out;
+        }
+        @-webkit-keyframes rotateplane {
+            /*0% { -webkit-transform: perspective(120px) }
+            50% { -webkit-transform: perspective(120px) rotateY(180deg) }
+            100% { -webkit-transform: perspective(120px) rotateY(180deg)  rotateX(180deg) }*/
+            0% { -webkit-transform: perspective(300px) }
+            50% { -webkit-transform: perspective(300px) rotateX(180deg) }
+            100% { -webkit-transform: perspective(300px) rotateX(0deg) }
+        }
+
+        @keyframes rotateplane {
+            0% {
+                transform: perspective(300px) rotateX(0deg) rotateY(0deg);
+                -webkit-transform: perspective(600px) rotateX(0deg) rotateY(0deg);
+            } 
+            50% {
+                transform: perspective(300px) rotateX(-180deg) rotateY(0deg);
+                -webkit-transform: perspective(300px) rotateX(180deg) rotateY(0deg);
+            } 
+            100% {
+                transform: perspective(300px) rotateX(0deg) rotateY(0deg);
+                -webkit-transform: perspective(300px) rotateX(360deg) rotateY(0deg);
+            }
         }
     </style>
 
@@ -121,6 +152,15 @@
             //            };
             //            $('#rr1').duplicate(5).appendTo('#inrow1');//.addClass('new')
             // same copy end
+            
+            function refreshstorysanim(){
+                $("#rr1").addClass("animation-story");
+                setTimeout('$("#rr1").removeClass("animation-story")', 1200);
+            }
+            document.getElementById("refreshstorys").onclick = function(){
+                refreshstorysanim();
+                return false;//#
+            }
         });
     </script>
     <!--    <script type="text/javascript" src="js/index.js"></script>-->
@@ -260,8 +300,13 @@
 
 
         <div class="row show-grid">
-            <div class="col-md-8">
-                儿童英语
+            <div class="col-md-4">
+                 儿童英语
+            </div>
+            <div class="col-md-4">
+<!--                <button type="button" class="btn btn-default btn-xs btn">-->
+                    <a id="refreshstorys"><span class="glyphicon glyphicon-refresh"></span> 换一批</a>
+<!--                </button>-->
             </div>
             <div class="col-md-2">
                 排行榜
