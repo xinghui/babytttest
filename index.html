@@ -25,6 +25,8 @@
 
     <!-- 最新的 Bootstrap 核心 JavaScript 文件 -->
     <script src="http://cdn.bootcss.com/twitter-bootstrap/3.0.3/js/bootstrap.min.js"></script>
+    
+    <script src="js/riffwave.js"></script>
 
     <!-- Custom styles for this template -->
     <link href="css/navbar-fixed-top.css" rel="stylesheet">
@@ -163,6 +165,375 @@
             }
         });
     </script>
+    
+    <!--    
+    Each note has its own frequency, for example the middle C (C4) in the piano is 523.26 Hertz:
+
+    C4 = 261.63 Hz	C5 = 523.26 Hz
+    C#4 = 277.18 Hz	C#5 = 554.37 Hz
+    D4 = 293.66 Hz	D5 = 587.33 Hz
+    D#4 = 311.13 Hz	D#5 = 622.25 Hz
+    E4 = 329.63 Hz	E5 = 659.26 Hz
+    F4 = 349.23 Hz	F5 = 698.46 Hz
+    F#4 = 369.99 Hz	F#5 = 739.99 Hz
+    G4 = 392 Hz	G5 = 783.99 Hz
+    G#4 = 415.3 Hz	G#5 = 830.61 Hz
+    A4 = 440 Hz	A5 = 880 Hz
+    A#4 = 466.16 Hz	A#5 = 932.33 Hz
+    B4 = 493.88 Hz	B5 = 987.77 Hz
+    -->
+    
+    <script type='test/invisible' id='white_noise'>
+    for (var i=0; i < 44100; i++) {
+      samples[i] = random()*2-1;
+    }
+    </script>
+
+    <script type='test/invisible' id='water_drop'>var f1 = 900;
+    var f2 = 20;
+    var samples_length = 44100;
+    for (var i=0; i < samples_length ; i++) {
+      var t = i/samples_length;
+      samples[i] = 1*cos(2*PI*f1*(t) + 20*cos(2*PI*f2*(t)) );
+      samples[i] *= exp(-t*15);
+    }
+    </script>
+
+    <script type='test/invisible' id='bell1'>var f = 880;
+    var samples_length = 44100;
+    for (var i=0; i < samples_length ; i++) {
+      var t = i/samples_length;
+      var w = 2*PI*f*t;
+      samples[i] = cos(w + 8*sin(w*7/5) * exp(-t*4) );
+      samples[i] *= exp(-t*3);
+    }
+    </script>
+
+    <script type='test/invisible' id='bell2'>var f = 220;
+    var samples_length = 44100;
+    for (var i=0; i < samples_length ; i++) {
+      var t = i/samples_length;
+      var w = 2*PI*f*t;
+      samples[i] = cos(w + 8*sin(w*2) * exp(-t*4) );
+      samples[i] *= exp(-t*3);
+    }
+    </script>
+
+    <script type='test/invisible' id='clarinet'>var f = 261.63; // 261.63 Hertz = C3 note
+    var samples_length = 44100;
+    for (var i=0; i < samples_length ; i++) {
+      var t = i/samples_length;
+      var w = f*2*PI*t;
+    // Odd harmonics
+      samples[i] = (sin(w) + 0.75*sin(w*3) + 0.5*sin(w*5)+0.14*sin(w*7)+0.5*sin(w*9)+0.12*sin(11*w)+0.17*sin(w*13))/(1+.75+.5+.14+.17);
+      samples[i] *= exp(t/1.5);
+      samples[i] *= exp(-t*1.5);
+    }
+    </script>
+
+    <script type='test/invisible' id='violin'>var f = 698.46; // 698.46 Hertz = F4 note
+    var samples_length = 44100;
+    for (var i=0; i < samples_length ; i++) {
+      var t = i/samples_length;
+      var y=0;
+      var A_total = 0;
+      for (var harm=1;harm<=7;harm++) {
+        var f2 = f*harm;
+        var A = 1/harm;
+        A_total += A;
+        y += A*sin(f2*2*PI*t);
+      }
+      samples[i] = y/A_total;
+      samples[i] *= (1-0.5*sin(2*PI*6*t)); // Add a low frequency amplitude modulation
+      samples[i] *= (1-exp(-t*3));
+    }
+    </script>
+
+    <script type='test/invisible' id='laser_echo'>var f1 = 900;
+    var f2 = 5;
+    var samples_length = 44100;
+    for (var i=0; i < samples_length ; i++) {
+      var t = i/samples_length;
+      samples[i] = cos(2*PI*f1*t + 1500*cos(2*PI*f2*t) );
+      samples[i] *= exp(-t*4);
+    }
+    </script>
+
+    <script type='test/invisible' id='laser1'>for (var i=0; i < 44100; i++) {
+      var t = i/44100;
+      samples[i] = sin(pow(5 * 2*PI*(1-t),3.6) );
+    }
+    </script>
+
+    <script type='test/invisible' id='220hz'>var frequency = 220;                      // 220 Hz = "A" note
+    var samples_length = 44100;               // Plays for 1 second (44.1 KHz)
+    for (var i=0; i < samples_length ; i++) { // fills array with samples
+      var t = i/samples_length;               // time from 0 to 1
+      samples[i] = sin( frequency * 2*PI*t ); // wave equation (between -1,+1)
+    }
+    </script>
+
+    <script type='test/invisible' id='220_bass'>var f = 220;
+    for (var i=0; i < 44100; i++) {
+      var t = i/44100;
+      samples[i] = pow(sin( 1.26*f/2 * 2*PI*t ),15)*pow((1-t),3) * pow(sin( 1.26*f/10 * 2*PI*t ),3)*10; 
+    }
+    </script>
+    
+    <script type="test/invisible" id='440Hz'>
+    var frequency = 440;                      // 440 Hz = "A" note
+    var samples_length = 44100;               // Plays for 1 second (44.1 KHz)
+    for (var i=0; i < samples_length ; i++) { // fills array with samples
+      var t = i/samples_length;               // time from 0 to 1
+      samples[i] = sin( frequency * 2*PI*t ); // wave equation (between -1,+1)
+      samples[i] *= (1-t);                    // "fade" effect (from 1 to 0)
+    }
+    </script>
+
+    <script type='test/invisible' id='achord'>var frequency = [392, 659.26, 783.99, 1046.5]; // "C4+E4+G4+C5" notes
+    var samples_length = 44100;               // Plays for 1 second (44.1 KHz)
+    for (var i=0; i < samples_length ; i++) { // fills array with samples
+      var t = i/samples_length;               // time from 0 to 1
+      samples[i] = (sin( frequency[0] * 2*PI*t ) + sin( frequency[1] * 2*PI*t )+ sin( frequency[2] * 2*PI*t ) + + sin( frequency[3] * 2*PI*t ))/4 ;
+    }
+    </script>
+
+    
+    <script>
+
+        function change_code(id) {
+//          $('#code_textarea').val( $('#'+id).text() );
+            var code = $('#'+id).text();
+            draw_and_play(code);
+        }
+
+        var  PI=Math.PI,
+             pi=Math.PI,
+            abs=Math.abs,
+            sin=Math.sin,
+           asin=Math.asin,
+            cos=Math.cos,
+            tan=Math.tan,
+           atan=Math.atan,
+          atan2=Math.atan2,
+          floor=Math.floor,
+           ceil=Math.ceil,
+            max=Math.max,
+            min=Math.min,
+         random=Math.random,
+          round=Math.round,
+           sqrt=Math.sqrt,
+            exp=Math.exp,
+            log=Math.log,
+            pow=Math.pow;
+
+        $(document).ready(function () {
+
+         global={
+          code_textarea: $('#code_textarea').text(),
+          play_ids: [],
+          play_canvas_ids: [],
+          play_element: [],
+          last_play_n: '',
+         };
+
+         draw_and_play();
+
+        });
+
+        function draw_and_play(code) {
+
+          sampleRate = 44100;
+        //  var samples_length = sampleRate; // divide by 2 ???
+          var samples = [] //new Float32Array(samples_length);
+          
+          
+          var frequency = [random()*10, random()*100, random()*1000, random()*10000]; // "C4+E4+G4+C5" notes
+            var samples_length = 44100;               // Plays for 1 second (44.1 KHz)
+            for (var i=0; i < samples_length ; i++) { // fills array with samples
+              var t = i/samples_length;               // time from 0 to 1
+//              samples[i] = (sin( frequency[0] * 2*PI*t ) + sin( frequency[1] * 2*PI*t )+ sin( frequency[2] * 2*PI*t ) + + sin( frequency[3] * 2*PI*t ))/4 ;
+                samples[i] = sin(90 * PI * t);
+            }
+          
+
+          
+
+//          var code = $('#code_textarea').val();
+
+          try {
+            eval(code);
+          } catch (e) {
+            result_error = 'ERROR: '+e;
+            alert(result_error);
+          }
+
+          if (samples.length==0) {
+            alert("ERROR: No values in array 'samples'");
+            return;
+          }
+
+          normalize_invalid_values(samples); // keep samples between [-1, +1]
+
+          draw_canvas_graph(samples);
+
+//          var wave = new RIFFWAVE();
+//          wave.header.sampleRate = sampleRate;
+//          wave.header.numChannels = 1;
+//          var audio = new Audio();
+//          var samples2=convert255(samples);
+//          wave.Make(samples2);
+//          audio.src=wave.dataURI;
+//          setTimeout(function() { audio.play(); }, 10); // page needs time to load?
+
+        }
+
+        function normalize_invalid_values(samples) {
+          for (var i=0, len=samples.length; i<len; i++) {
+            if (samples[i]>1) {
+              samples[i] = 1;
+            } else if (samples[i]<-1) {
+              samples[i] = -1;
+            }
+          }
+        }
+
+        function draw_canvas_graph(samples) {
+
+          // Stop last canvas drawing
+          if (global.play_canvas_id) {
+            clearInterval(global.play_canvas_id);
+          }
+          if (global.play_canvas2_id) {
+            clearInterval(global.play_canvas2_id);
+          }
+
+          // Draw graph
+
+          var canvas2 = document.getElementById('canvas2');
+
+          var canvas = document.getElementById('canvas1');
+          var canvas_width = canvas.width;
+
+          if (canvas.getContext) {
+            var context = canvas.getContext('2d');
+            clearCanvas(context, canvas);
+            var amplitude = canvas.height/2-20;
+            var iter=0;
+            var last_iter_draw=-1;
+
+            // 22050 or 44100 ? (samples.length) = 500 ms or 1000 ms ?
+            // 882   (canvas.width)    = t   s
+            // t = 882*500 / 22050 = 20 ms
+            // t = (canvas.width * 500) / samples.length
+
+            var play_duration_ms = samples.length * 1000 / sampleRate; // 44100*1000/44100 = 1000 ms (1 s.)
+
+            var interval_ms = Math.round(canvas_width * play_duration_ms / samples.length); // 882*500/22050 = 20 ms
+
+        // TODO: Testar no ipad pois fica lento, precisa diminuir frames per second
+            var step = 2; // 1 = 50 frames per second
+                          // 2 = 25 frames per second
+                          // 3 = 15 frames per second
+                          // 4 = 12 frames per second
+                          // 5 = 10 frames per second
+
+            // setInterval will run "number_of_iters" times. Will run 25 times (25*20ms = 500 ms = 1/2 s), or 50 times if samples.length=44100
+            var number_of_iters = Math.floor(samples.length / canvas_width); // round removing last pixels if samples.length not divisable by canvas.width 
+            var middle_iter = Math.round(number_of_iters/2);
+
+            var hsl_factor = 50/number_of_iters; // Max fading hsl 's' = 50%
+
+            global.play_canvas_id = setInterval(function() {
+
+              // Draw graph with a single line (samples in the middle)
+              if (iter==middle_iter) { // iter==0 would draw the first samples.
+                if (canvas2.getContext) {
+                  var context2 = canvas2.getContext('2d');
+                  clearCanvas(context2, canvas2);
+                  var canvas2_width = canvas2.width;
+                  var canvas2_height = canvas2.height;
+
+                  // Draw background graphic grid
+                  context2.fillStyle = '#131';
+                  context2.fillRect(0, Math.round(canvas2_height/2), canvas2_width, 1);
+
+                  context2.fillStyle = 'hsl(127,83%,66%)'; // green #60f070
+                  var x2=0;
+
+                  global.play_canvas2_id = setInterval( function() {
+                    var y = Math.round((canvas2_height/2)-samples[x2+middle_iter*canvas_width]*amplitude);
+                    context2.fillRect(x2, y, 1, 1);
+                    x2++;
+                    if (x2>= canvas2_width) {
+                      clearInterval(global.play_canvas2_id);
+                    }
+                  }, 1);
+
+        //          for (var x=0; x<=canvas2.width; x++) {
+        //            var y = Math.round((canvas2_height/2)-samples[x]*amplitude);
+        //            context2.fillRect(x, y, 1, 1);
+        //          }
+
+                }
+              }
+
+              if (iter%step==0) {
+
+                // Clear last graph
+                if (last_iter_draw>=0) {
+                 for (var x=0; x<=canvas_width; x++) {
+                   var sample_pos = x+((last_iter_draw)*canvas_width);
+        //           var y = Math.round((canvas.height/2)-samples[sample_pos]*amplitude);
+                   var y = (canvas.height/2)-samples[sample_pos]*amplitude;
+                   context.fillStyle = 'hsl(127,13%,'+iter+'%)'; // fading effect
+                   last_fillStyle = context.fillStyle;
+                   context.fillRect(x, y, 1, 1);
+                 }
+               }
+
+               var pos_offset = iter*canvas_width;
+
+               if ( pos_offset >= samples.length ) { // is last iter
+                 clearInterval(global.play_canvas_id);
+        //         pos_offset = samples.length - canvas_width;
+                 context.fillStyle = last_fillStyle;
+
+               } else {
+                 context.fillStyle = 'hsl(127,83%,66%)'; // green #60f070
+               }
+
+               last_iter_draw = iter;
+              }
+
+              iter++;
+            }, interval_ms); // End of setInterval
+
+          }
+
+        }
+
+        function clearCanvas(context, canvas) {
+          var w = canvas.width;
+          context.clearRect(0, 0, w, canvas.height);
+          canvas.width = 1;
+          canvas.width = w;
+          // Draw background graphic grid
+        //  context.fillStyle = '#131';
+        //  context.fillRect(0, 75, canvas.width, 1);
+          context.fillStyle = '#7f7';
+        }
+
+        function convert255(data) {
+          var data_0_255=[];
+          for (var i=0;i<data.length;i++) {
+            data_0_255[i]=128+Math.round(127*data[i]);
+          }
+          return data_0_255;
+        }
+
+    </script>
+
     <!--    <script type="text/javascript" src="js/index.js"></script>-->
 </head>
 
@@ -297,6 +668,32 @@
                 </div>
             </div>
         </div>
+        
+        <canvas class="round10" id="canvas1" style="background-color: black; z-index: 2; position: relative;" width="650" height="190" ></canvas>
+        <br />
+        <br />
+        Samples in the middle of the sound playing (650 pixels):
+        <br />
+        <br />
+        <canvas class="round10" id="canvas2" style="background-color: black; z-index: 2; position: relative;" width="650" height="190" ></canvas>
+
+        <br />
+        <br />
+        <input type=button value="220 Hz, no fade" onClick="change_code('220hz')">
+        <input type=button value="440 Hz, fade" onClick="change_code('440Hz')">
+        <input type=button value="Achord" onClick="change_code('achord')" title="Achord with simultaneous C4+E4+G4+C5 notes">
+        <input type=button value="Laser" onClick="change_code('laser1')">
+        <input type=button value="Bass Effect" onClick="change_code('220_bass')">
+        <input type=button value="White Noise" onClick="change_code('white_noise')">
+        <br />
+        <br />
+        <input type=button value="Laser Echo" onClick="change_code('laser_echo')">
+        <input type=button value="Water drop" onClick="change_code('water_drop')">
+        <input type=button value="Bell 1" onClick="change_code('bell1')">
+        <input type=button value="Bell 2" onClick="change_code('bell2')">
+        <input type=button value="Clarinet" onClick="change_code('clarinet')">
+        <input type=button value="Violin" onClick="change_code('violin')">
+
 
 
         <div class="row show-grid">
