@@ -1,0 +1,392 @@
+<html>
+<!-- Made with Intype http://inotai.com/intype -->
+
+<head>
+    <title>Android DPI Calculator</title>
+    <style type="text/css" media="screen">
+        body {
+            font-family: "Segoe UI", sans-serif;
+            font-size: 13px;
+            background: url(data:image/gif;base64,R0lGODlhEAAQAIAAAP///97e3iH5BAAHAP8ALAAAAAAQABAAAAIPhI+py+0Po5y02ouzNqEAADs=);
+        }
+        #page {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            margin-top: -280px;
+            margin-left: -256px;
+            width: 640px;
+            text-align: left;
+        }
+        a {
+            color: #09f;
+            text-decoration: none;
+        }
+        #title {
+            margin-bottom: 10px;
+        }
+        h1 {
+            font-size: 32px;
+            font-weight: normal;
+            color: #09f;
+            margin-bottom: 8px;
+            padding-bottom: 0px;
+        }
+        p {
+            width: 62%;
+            line-height: 24px;
+            color: #999;
+            padding: 0;
+            margin: 0;
+        }
+        #footer {
+            padding-top: 32px;
+        }
+        #footer a {
+            color: #666;
+            border-bottom: 1px dotted #999;
+        }
+        #donate {
+            padding-top: 32px;
+        }
+        #ads {} form {
+            width: 640px;
+            overflow: auto;
+            margin-bottom: 32px;
+        }
+        .box {
+            float: left;
+            width: 96px;
+            margin-right: 32px;
+        }
+        .box:last-child {
+            margin-right: 0px;
+        }
+        .box label {
+            color: #999;
+            display: block;
+            text-align: left;
+            float: left;
+        }
+        .box .hint {
+            float: right;
+            color: #999;
+        }
+        .box input {
+            outline: none;
+            border: 0;
+            border-bottom: 2px solid #eee;
+            font-size: 25px;
+            padding: 0;
+            width: 96px;
+        }
+        .box input:focus {
+            color: #09f;
+            border-bottom: 2px solid #09f;
+        }
+        .box input:focus + .labels label {
+            color: #09f;
+        }
+        .box input.error {
+            color: #f30;
+            border-bottom: 2px solid #f30;
+        }
+        .box input.error + .labels label {
+            color: #f30;
+        }
+    </style>
+    <script src="js/jquery.min.js"></script>
+    <script>
+        $(function () {
+            function applyToInputSet(id) {
+                var dpis = [320, 240, 160, 120, 212.8];
+                var labels = ['xhdpi', 'hdpi', 'mdpi', 'ldpi', 'tvdpi'];
+                var inputs = $(id + ' input');
+                inputs.each(function (i) {
+                    if (this.value == '') {
+                        this.value = '';
+                    }
+                    set(this, this.value, dpis[i]);
+                });
+
+                function convert(source_value, source_dpi, target_dpi) {
+                    // console.log( source_value, source_dpi, target_dpi );
+                    if (isNaN(source_value))
+                        return '';
+
+                    return source_value * (target_dpi / source_dpi);
+                }
+
+                function check(value, dpi) {
+                    if (dpi == 212.8) {
+                        // console.log(Math.round(value / 1.33), convert(value, 212.8, 160));
+                        return Math.round(value / 1.33) == convert(value, 212.8, 160);
+                    }
+                    var l = dpi / 40;
+                    if ((value % l) != 0) {
+                        // console.log(value, "not valid for", dpi, value / 1.33);
+                        return false;
+                    }
+                    return true;
+                }
+
+                function closest(value, dpi) {
+                    var l = dpi / 40;
+
+                    return Math.round(value / l) * l;
+                }
+
+                function set(input, value, dpi) {
+                    input.value = value;
+                    $(input).data('last_value', value);
+                    // Find source input's label
+                    var source_hint = $(input).parent().find('.hint')[0];
+                    var source_hint_text = closest(value, dpi);
+                    if (source_hint_text != value && !isNaN(source_hint_text)) {
+                        source_hint.innerHTML = source_hint_text;
+                    } else {
+                        source_hint.innerHTML = '';
+                    }
+                }
+
+                function onUpdate(dpi_index) {
+
+                    var source_dpi = dpis[dpi_index];
+                    var source_input = inputs[dpi_index];
+
+                    if ($(source_input).data('last_value') == source_input.value) {
+                        return;
+                    }
+                    set(source_input, source_input.value, source_dpi);
+
+                    var source_value = parseFloat(source_input.value);
+
+                    var source_hint_text = '';
+                    inputs.removeClass('error');
+                    if (source_input.value != '' && check(source_value, source_dpi) === false) {
+                        $(inputs[dpi_index]).addClass('error');
+                    }
+
+
+                    var results = [0, 0, 0, 0, 0];
+                    inputs.each(function (i) {
+                        if (i != dpi_index) {
+                            set(inputs[i], convert(source_value, source_dpi, dpis[i]), dpis[i]);
+                        }
+                    });
+                }
+
+                inputs.each(function (i) {
+                    $(document.body).bind('keydown', function (e) {
+                        // console.log( e );
+                    });
+                    $(this).bind('keyup', function () {
+                        onUpdate(i);
+                    });
+                    $(this).bind('change', function () {
+                        onUpdate(i);
+                    });
+                });
+            }
+
+            applyToInputSet('#f1');
+            applyToInputSet('#f2');
+
+
+            function applyToInputSet2(id) {
+                var dpis = [1.25, 1];
+                var labels = ['px', 'dp', ];
+                var inputs = $(id + ' input');
+                inputs.each(function (i) {
+                    if (this.value == '') {
+                        this.value = '';
+                    }
+                    set(this, this.value, dpis[i]);
+                });
+
+                function convert(source_value, source_dpi, target_dpi) {
+                    // console.log( source_value, source_dpi, target_dpi );
+                    if (isNaN(source_value))
+                        return '';
+
+                    return source_value * (target_dpi / source_dpi);
+                }
+
+                function set(input, value, dpi) {
+                    input.value = value;
+                    $(input).data('last_value', value);
+                    // Find source input's label
+                }
+
+                function onUpdate(dpi_index) {
+
+                    var source_dpi = dpis[dpi_index];
+                    var source_input = inputs[dpi_index];
+
+                    if ($(source_input).data('last_value') == source_input.value) {
+                        return;
+                    }
+                    set(source_input, source_input.value, source_dpi);
+
+                    var source_value = parseFloat(source_input.value);
+
+                    var results = [0, 0, 0, 0, 0];
+                    inputs.each(function (i) {
+                        if (i != dpi_index) {
+                            set(inputs[i], convert(source_value, source_dpi, dpis[i]), dpis[i]);
+                        }
+                    });
+                }
+
+                inputs.each(function (i) {
+                    $(document.body).bind('keydown', function (e) {
+                        // console.log( e );
+                    });
+                    $(this).bind('keyup', function () {
+                        onUpdate(i);
+                    });
+                    $(this).bind('change', function () {
+                        onUpdate(i);
+                    });
+                });
+            }
+
+            applyToInputSet2('#f3');
+            applyToInputSet2('#f4');
+
+
+        });
+    </script>
+</head>
+
+<body>
+    <div id="page">
+
+        <form id="f1">
+            <div class="box">
+                <input type="text" id="xhdpi" autofocus tabindex="1">
+                <div class="labels">
+                    <label for="xhdpi"><span class="a">x</span>hdpi</label>
+                    <span class="hint"></span>
+                </div>
+            </div>
+            <div class="box">
+                <input type="text" id="hdpi" tabindex="3">
+                <div class="labels">
+                    <label for="hdpi"><span class="a">h</span>dpi</label>
+                    <span class="hint"></span>
+                </div>
+            </div>
+            <div class="box">
+                <input type="text" id="mdpi" tabindex="5">
+                <div class="labels">
+                    <label for="mdpi"><span class="a">m</span>dpi</label>
+                    <span class="hint"></span>
+                </div>
+            </div>
+            <div class="box">
+                <input type="text" id="ldpi" tabindex="7">
+                <div class="labels">
+                    <label for="ldpi"><span class="a">l</span>dpi</label>
+                    <span class="hint"></span>
+                </div>
+            </div>
+            <div class="box">
+                <input type="text" id="tvdpi" tabindex="7">
+                <div class="labels">
+                    <label for="tvdpi"><span class="a">t</span>vdpi</label>
+                    <span class="hint"></span>
+                </div>
+            </div>
+        </form>
+
+        
+        <form id="f2">
+            <div class="box">
+                <input type="text" id="xhdpi" tabindex="2">
+                <div class="labels">
+                    <label for="xhdpi"><span class="a">x</span>hdpi</label>
+                    <span class="hint"></span>
+                </div>
+            </div>
+            <div class="box">
+                <input type="text" id="hdpi" tabindex="4">
+                <div class="labels">
+                    <label for="hdpi"><span class="a">h</span>dpi</label>
+                    <span class="hint"></span>
+                </div>
+            </div>
+            <div class="box">
+                <input type="text" id="mdpi" tabindex="6">
+                <div class="labels">
+                    <label for="mdpi"><span class="a">m</span>dpi</label>
+                    <span class="hint"></span>
+                </div>
+            </div>
+            <div class="box">
+                <input type="text" id="ldpi" tabindex="8">
+                <div class="labels">
+                    <label for="ldpi"><span class="a">l</span>dpi</label>
+                    <span class="hint"></span>
+                </div>
+            </div>
+            <div class="box">
+                <input type="text" id="tvdpi" tabindex="8">
+                <div class="labels">
+                    <label for="tvdpi"><span class="a">t</span>vdpi</label>
+                    <span class="hint"></span>
+                </div>
+            </div>
+        </form>
+        
+        
+        
+        <div id="title">
+            <h1>px -> dp</h1>
+            <p>现在是1.25:1</p>
+        </div>
+
+        <form id="f3">
+            <div class="box">
+                <input type="text" id="px" tabindex="1">
+                <div class="labels">
+                    <label for="dp"><span class="a">px</span>
+                    </label>
+                    <span class="hint"></span>
+                </div>
+            </div>
+            <div class="box">
+                <input type="text" id="dp" tabindex="2">
+                <div class="labels">
+                    <label for="px"><span class="a">dp</span>
+                    </label>
+                    <span class="hint"></span>
+                </div>
+            </div>
+        </form>
+        
+        <form id="f4">
+            <div class="box">
+                <input type="text" id="px" tabindex="1">
+                <div class="labels">
+                    <label for="dp"><span class="a">px</span>
+                    </label>
+                    <span class="hint"></span>
+                </div>
+            </div>
+            <div class="box">
+                <input type="text" id="dp" tabindex="2">
+                <div class="labels">
+                    <label for="px"><span class="a">dp</span>
+                    </label>
+                    <span class="hint"></span>
+                </div>
+            </div>
+        </form>
+
+
+    </div>
+
+</body>
+
+</html>
