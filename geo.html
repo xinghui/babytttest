@@ -14,7 +14,7 @@
             return;
         }
 
-        s.innerHTML = "found you!";
+        s.innerHTML = "found you! at " + position.coords.latitude + "," + position.coords.longitude;
         s.className = 'success';
 
         var mapcanvas = document.createElement('div');
