@@ -46,14 +46,19 @@
     function error(msg) {
         var s = document.querySelector('#status');
 //        s.innerHTML = typeof msg == 'string' ? msg : "failed";
-        s.innerHTML = msg;
+        if (typeof msg == 'PositionError'){
+            s.innerHTML = "code=" + msg.code + ",message="+msg.message;
+        }else{
+            s.innerHTML = msg;
+        }
+        
         s.className = 'fail';
 
         // console.log(arguments);
     }
 
     if (navigator.geolocation) {
-        navigator.geolocation.getCurrentPosition(success, error, {timeout:60000});
+        navigator.geolocation.getCurrentPosition(success, error);
     } else {
         error('not supported');
     }
