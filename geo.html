@@ -52,7 +52,7 @@
     }
 
     if (navigator.geolocation) {
-        navigator.geolocation.getCurrentPosition(success, error);
+        navigator.geolocation.getCurrentPosition(success, error, {timeout:60000});
     } else {
         error('not supported');
     }
